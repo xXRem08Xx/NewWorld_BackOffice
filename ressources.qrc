@@ -7,5 +7,6 @@
         <file>Images/sauvegarder.png</file>
         <file>Images/valider.png</file>
         <file>Images/Profil.png</file>
+        <file>Images/verification.png</file>
     </qresource>
 </RCC>

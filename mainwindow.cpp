@@ -127,7 +127,20 @@ void MainWindow::on_pushButtonProfil_Enregistrer_clicked()
     }
 }
 
+/**
+ * @brief Cette fonction sert a remettre les valeurs de base inscrite dans la base de données pour effacer les modifications de texte que
+ * l'utilisateur aurai pu faire
+ */
 void MainWindow::on_pushButtonProfil_Annuler_clicked()
 {
+     qDebug()<<"MainWindow::on_pushButtonProfil_Annuler_clicked()";
 
+     ui->lineEditProfil_Login->setText(login);
+     ui->lineEditProfil_Ville->setText(ville);
+     ui->lineEditProfil_Mail->setText(mail);
+     ui->lineEditProfil_Adresse->setText(adresse);
+     ui->lineEditProfil_password->setText("");
+     ui->lineEditProfil_Telephone->setText(telephone);
+     ui->lineEditProfil_CodePostal->setText(codePostal);
+     ui->lineEditProfil_passwordConfirm->setText("");
 }

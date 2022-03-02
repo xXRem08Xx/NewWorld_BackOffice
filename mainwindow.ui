@@ -29,7 +29,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -627,14 +627,18 @@
         </layout>
        </widget>
       </widget>
+      <widget class="QWidget" name="tabVerification">
+       <attribute name="icon">
+        <iconset resource="ressources.qrc">
+         <normaloff>:/Images/Images/verification.png</normaloff>:/Images/Images/verification.png</iconset>
+       </attribute>
+       <attribute name="title">
+        <string>Verification</string>
+       </attribute>
+      </widget>
       <widget class="QWidget" name="tab">
        <attribute name="title">
         <string>Administration</string>
-       </attribute>
-      </widget>
-      <widget class="QWidget" name="tab_2">
-       <attribute name="title">
-        <string>Verification</string>
        </attribute>
       </widget>
      </widget>
