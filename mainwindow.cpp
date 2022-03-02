@@ -191,6 +191,19 @@ void MainWindow::verifProducteur()
 {
     qDebug()<<"MainWindow::verifProducteur()";
 
+    //Creer les colonnes de la table Producteur dans le tableWidget
     createTableColonne("Producteur", ui->tableWidgetVerification);
     createLigne(ui->tableWidgetVerification);
+
+    QString requeteVerification = "SELECT `identifiantProducteur`, `nom`, `prenom`, `mail`, `telephone`, `adresse`, `horaire`, "
+                                  "`dateEnregistrement`, `actif`, `identifiantTypeAbonnement` FROM `Producteur` "
+                                  "WHERE `identifiantTypeAbonnement` = 2";
+    QSqlQuery resultatRequete(requeteVerification);
+    while (resultatRequete.next())
+    {
+        createLigne(ui->tableWidgetVerification);
+        int numLigne = ui->tableWidgetVerification->rowCount()-1;
+
+        ui->tableWidgetVerification->setItem(numLigne,)
+    }
 }
