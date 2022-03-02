@@ -13,7 +13,9 @@ MainWindow::MainWindow(int identifiantUtilisateur ,QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     idUtilisateur = identifiantUtilisateur;
+
     ui->setupUi(this);
+    ui->labelProfil_Avertissement->setText("");
 
     //on rempli la fenetre de profil
     getPlaceInfoUtilisateur(identifiantUtilisateur);
@@ -101,18 +103,28 @@ void MainWindow::getPlaceInfoUtilisateur(int id)
 void MainWindow::on_pushButtonProfil_Enregistrer_clicked()
 {
     qDebug()<<"MainWindow::on_pushButtonProfil_Enregistrer_clicked()";
-    QString requeteUpdateUtilisateur = "UPDATE `Utilisateur` SET "
-    "`login`='"+ui->lineEditProfil_Login->text()+"',"
-    "`adresse`='"+ui->lineEditProfil_Adresse->text()+"',"
-    "`ville`='"+ui->lineEditProfil_Ville->text()+"',"
-    "`codePostal`='"+ui->lineEditProfil_CodePostal->text()+"',"
-    "`telephone`='"+ui->lineEditProfil_Telephone->text()+"',"
-    "`motDePasse`=PASSWORD('"+ui->lineEditProfil_password->text()+"'),"
-    "`mail`='"+ui->lineEditProfil_Mail->text()+"'"
-    " WHERE numUtilisateur = '"+QString::number(idUtilisateur)+"';";
-    qDebug()<<"requeteUpdateUtilisateur : "<<requeteUpdateUtilisateur;
 
-    QSqlQuery requeteUpdate(requeteUpdateUtilisateur);
+    //si la confirmation du mot de passe est la meme que celle renseigné au dessus
+    if (ui->lineEditProfil_password->text() == ui->lineEditProfil_passwordConfirm->text())
+    {
+        ui->labelProfil_Avertissement->setText("Votre mot de passe a été modifié");
+
+        QString requeteUpdateUtilisateur = "UPDATE `Utilisateur` SET "
+        "`login`='"+ui->lineEditProfil_Login->text()+"',"
+        "`adresse`='"+ui->lineEditProfil_Adresse->text()+"',"
+        "`ville`='"+ui->lineEditProfil_Ville->text()+"',"
+        "`codePostal`='"+ui->lineEditProfil_CodePostal->text()+"',"
+        "`telephone`='"+ui->lineEditProfil_Telephone->text()+"',"
+        "`motDePasse`=PASSWORD('"+ui->lineEditProfil_password->text()+"'),"
+        "`mail`='"+ui->lineEditProfil_Mail->text()+"'"
+        " WHERE numUtilisateur = '"+QString::number(idUtilisateur)+"';";
+        qDebug()<<"requeteUpdateUtilisateur : "<<requeteUpdateUtilisateur;
+        QSqlQuery requeteUpdate(requeteUpdateUtilisateur);
+    }
+    else {
+        ui->labelProfil_Avertissement->setText("Votre mot de passe n'est pas identique a la confirmation !");
+        boolLabelProfil_Avertissement = true;
+    }
 }
 
 void MainWindow::on_pushButtonProfil_Annuler_clicked()

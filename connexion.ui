@@ -10,6 +10,13 @@
     <height>531</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Century Schoolbook L</family>
+    <pointsize>13</pointsize>
+    <italic>true</italic>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
@@ -53,7 +60,7 @@
          <property name="font">
           <font>
            <family>Century Schoolbook L</family>
-           <pointsize>26</pointsize>
+           <pointsize>32</pointsize>
            <weight>75</weight>
            <italic>true</italic>
            <bold>true</bold>
@@ -311,7 +318,7 @@
            <item>
             <widget class="QPushButton" name="pushButtonAnnuler">
              <property name="text">
-              <string>Annuler</string>
+              <string> Annuler</string>
              </property>
              <property name="icon">
               <iconset resource="ressources.qrc">
@@ -335,7 +342,7 @@
            <item>
             <widget class="QPushButton" name="pushButtonQuitter">
              <property name="text">
-              <string>Quitter</string>
+              <string> Quitter</string>
              </property>
              <property name="icon">
               <iconset resource="ressources.qrc">

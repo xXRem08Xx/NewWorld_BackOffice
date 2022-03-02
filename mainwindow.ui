@@ -21,6 +21,13 @@
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QTabWidget" name="tabWidgetGlobal">
+      <property name="font">
+       <font>
+        <family>Century Schoolbook L</family>
+        <pointsize>13</pointsize>
+        <italic>true</italic>
+       </font>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -388,6 +395,43 @@
               </spacer>
              </item>
              <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_15">
+               <item>
+                <spacer name="horizontalSpacer_16">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QLabel" name="labelProfil_Avertissement">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_17">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item>
               <layout class="QVBoxLayout" name="verticalLayout_4">
                <item>
                 <spacer name="verticalSpacer_10">
@@ -495,7 +539,7 @@
                    </property>
                    <property name="icon">
                     <iconset resource="ressources.qrc">
-                     <normaloff>:/Images/Images/enregistrer.png</normaloff>:/Images/Images/enregistrer.png</iconset>
+                     <normaloff>:/Images/Images/sauvegarder.png</normaloff>:/Images/Images/sauvegarder.png</iconset>
                    </property>
                   </widget>
                  </item>
@@ -515,7 +559,7 @@
                  <item>
                   <widget class="QPushButton" name="pushButtonProfil_Annuler">
                    <property name="text">
-                    <string>Annuler les changements</string>
+                    <string> Annuler les changements</string>
                    </property>
                    <property name="icon">
                     <iconset resource="ressources.qrc">

@@ -38,6 +38,8 @@ private:
     QString telephone;
     QString mail;
     QString idRole;
+    bool boolLabelProfil_Avertissement = false;
+
 };
 
 #endif // MAINWINDOW_H
