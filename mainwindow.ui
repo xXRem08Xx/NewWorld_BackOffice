@@ -635,6 +635,11 @@
        <attribute name="title">
         <string>Verification</string>
        </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_16">
+        <item>
+         <widget class="QTableWidget" name="tableWidgetVerification"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab">
        <attribute name="title">

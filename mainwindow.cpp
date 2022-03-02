@@ -19,6 +19,7 @@ MainWindow::MainWindow(int identifiantUtilisateur ,QWidget *parent) :
 
     //on rempli la fenetre de profil
     getPlaceInfoUtilisateur(identifiantUtilisateur);
+    verifProducteur();
 }
 
 MainWindow::~MainWindow()
@@ -143,4 +144,53 @@ void MainWindow::on_pushButtonProfil_Annuler_clicked()
      ui->lineEditProfil_Telephone->setText(telephone);
      ui->lineEditProfil_CodePostal->setText(codePostal);
      ui->lineEditProfil_passwordConfirm->setText("");
+}
+
+
+/**
+ * @brief insertion d'une nouvelle ligne dans le TableWidget
+ */
+void MainWindow::createLigne(QTableWidget *tableau)
+{
+    qDebug()<<"MainWindow::createLigne";
+    tableau->insertRow(tableau->rowCount());
+}
+
+/**
+ * @brief Insertion d'une colonne dans le TableWidget et modifie son nom
+ * @param nomColonne : Contient le nom de la colonne a mettre dans la colonne qui va etre créé
+ */
+void MainWindow::createColonne(QString nomColonne, QTableWidget *tableau)
+{
+    qDebug()<<"MainWindow::createColonne";
+    //insert une nouvelle colonne
+    tableau->insertColumn(tableau->columnCount());
+    //modifie le nom de la colonne
+    tableau->setHorizontalHeaderItem(tableau->columnCount()-1, new QTableWidgetItem (nomColonne));
+}
+
+/**
+ * @brief Cette fonction permet de creer toutes les colonnes du QTableWidget passé en parametre, une pour chaque champs de la table que l'on souhaite afficher
+ * @param nomDeLaTable : QString Contient le nom de la table que l'on souhaite afficher
+ * @param tableau : QTableWidget Contient le QTableWidget où l'on souhaite creer les colonnes
+ */
+void MainWindow::createTableColonne(QString nomDeLaTable, QTableWidget *tableau)
+{
+    qDebug()<<"MainWindow::createTableColonne(QString nomDeLaTable)";
+    QString requeteColonne = "DESC "+nomDeLaTable;
+    qDebug()<<"requeteColonne = "<<requeteColonne;
+    QSqlQuery query(requeteColonne);
+
+    while (query.next())
+    {
+        createColonne(query.value(0).toString(), tableau);
+    }
+}
+
+void MainWindow::verifProducteur()
+{
+    qDebug()<<"MainWindow::verifProducteur()";
+
+    createTableColonne("Producteur", ui->tableWidgetVerification);
+    createLigne(ui->tableWidgetVerification);
 }

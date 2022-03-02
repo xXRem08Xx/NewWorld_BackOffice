@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTableWidget>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,10 @@ public:
     bool quitConfirm();
     void closeEvent(QCloseEvent *event);
     void getPlaceInfoUtilisateur(int id);
+    void createLigne(QTableWidget *tableau);
+    void createColonne(QString nomColonne, QTableWidget *tableau);
+    void createTableColonne(QString nomDeLaTable, QTableWidget *tableau);
+    void verifProducteur();
 
     ~MainWindow();
 
