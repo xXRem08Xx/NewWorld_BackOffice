@@ -13,6 +13,11 @@ class Connexion : public QDialog
 
 public:
     explicit Connexion(QWidget *parent = nullptr);
+
+    bool quitConfirm();
+    void closeEvent(QCloseEvent *event);
+    int getIdProfil();
+
     ~Connexion();
 
 private slots:
@@ -20,8 +25,13 @@ private slots:
 
     void on_pushButtonAnnuler_clicked();
 
+    void on_pushButtonQuitter_clicked();
+
 private:
     Ui::Connexion *ui;
+    QString login;
+    QString password;
+    int idUtilisateur;
 };
 
 #endif // CONNEXION_H

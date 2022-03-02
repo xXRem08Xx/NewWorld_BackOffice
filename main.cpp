@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     //si la boite de dialogue renvoie accept()
     if(seConnecter.exec() == QDialog::Accepted)
     {
-        MainWindow w;
+        MainWindow w(seConnecter.getIdProfil());
         w.show();
 
         return a.exec();
