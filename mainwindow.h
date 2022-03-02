@@ -23,6 +23,8 @@ public:
 private slots:
     void on_pushButtonProfil_Enregistrer_clicked();
 
+    void on_pushButtonProfil_Annuler_clicked();
+
 private:
     Ui::MainWindow *ui;
     int idUtilisateur;

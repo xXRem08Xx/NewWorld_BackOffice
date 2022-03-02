@@ -1,2 +1,13 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/Images">
+        <file>Images/book.jpg</file>
+        <file>Images/loupe.jpg</file>
+        <file>Images/modifier.png</file>
+        <file>Images/supprimer.png</file>
+        <file>Images/valider.png</file>
+        <file>Images/annuler.png</file>
+        <file>Images/quitter.png</file>
+        <file>Images/backOffice_logo.jpg</file>
+        <file>Images/enregistrer.png</file>
+    </qresource>
+</RCC>

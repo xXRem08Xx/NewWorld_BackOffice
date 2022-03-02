@@ -7,13 +7,17 @@
     <x>0</x>
     <y>0</y>
     <width>628</width>
-    <height>446</height>
+    <height>531</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_5">
+  <property name="windowIcon">
+   <iconset resource="ressources.qrc">
+    <normaloff>:/Images/Images/backOffice_logo.jpg</normaloff>:/Images/Images/backOffice_logo.jpg</iconset>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_7">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
@@ -28,6 +32,52 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <family>Century Schoolbook L</family>
+           <pointsize>26</pointsize>
+           <weight>75</weight>
+           <italic>true</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Connexion</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_15">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -239,6 +289,10 @@
              <property name="text">
               <string>Valider</string>
              </property>
+             <property name="icon">
+              <iconset resource="ressources.qrc">
+               <normaloff>:/Images/Images/valider.png</normaloff>:/Images/Images/valider.png</iconset>
+             </property>
             </widget>
            </item>
            <item>
@@ -259,6 +313,10 @@
              <property name="text">
               <string>Annuler</string>
              </property>
+             <property name="icon">
+              <iconset resource="ressources.qrc">
+               <normaloff>:/Images/Images/annuler.png</normaloff>:/Images/Images/annuler.png</iconset>
+             </property>
             </widget>
            </item>
            <item>
@@ -278,6 +336,10 @@
             <widget class="QPushButton" name="pushButtonQuitter">
              <property name="text">
               <string>Quitter</string>
+             </property>
+             <property name="icon">
+              <iconset resource="ressources.qrc">
+               <normaloff>:/Images/Images/quitter.png</normaloff>:/Images/Images/quitter.png</iconset>
              </property>
             </widget>
            </item>
@@ -343,6 +405,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

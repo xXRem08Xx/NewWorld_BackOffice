@@ -57,7 +57,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
         event->ignore();
     }
 }
-
+/**
+ * @brief Cette fonction sert a recuperer les informations personnelles de l'utilisateur et de les afficher dans la fenetre Profil
+ * @param id : Int Contient l'id de l'utilisateur en cour
+ */
 void MainWindow::getPlaceInfoUtilisateur(int id)
 {
     qDebug()<<"MainWindow::getPlaceInfoUtilisateur(int id)";
@@ -91,6 +94,10 @@ void MainWindow::getPlaceInfoUtilisateur(int id)
     ui->labelProfil_PrenomARemplir->setText(prenom);
 }
 
+/**
+ * @brief Cette fonction permet d'enregistrer les informations ecrites dans les champs de saisi dans la base de données, enregistrant ainsi les
+ * modifications effectuées si il y en a eu
+ */
 void MainWindow::on_pushButtonProfil_Enregistrer_clicked()
 {
     qDebug()<<"MainWindow::on_pushButtonProfil_Enregistrer_clicked()";
@@ -106,4 +113,9 @@ void MainWindow::on_pushButtonProfil_Enregistrer_clicked()
     qDebug()<<"requeteUpdateUtilisateur : "<<requeteUpdateUtilisateur;
 
     QSqlQuery requeteUpdate(requeteUpdateUtilisateur);
+}
+
+void MainWindow::on_pushButtonProfil_Annuler_clicked()
+{
+
 }

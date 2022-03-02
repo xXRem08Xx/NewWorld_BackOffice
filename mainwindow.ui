@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="ressources.qrc">
+    <normaloff>:/Images/Images/backOffice_logo.jpg</normaloff>:/Images/Images/backOffice_logo.jpg</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
@@ -426,6 +430,33 @@
                 </layout>
                </item>
                <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_14">
+                 <item>
+                  <widget class="QLabel" name="labelProfil_password_2">
+                   <property name="text">
+                    <string>Confirmer Mot de Passe : </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_15">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEditProfil_passwordConfirm"/>
+                 </item>
+                </layout>
+               </item>
+               <item>
                 <spacer name="verticalSpacer_11">
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
@@ -462,6 +493,10 @@
                    <property name="text">
                     <string>Enregistrer</string>
                    </property>
+                   <property name="icon">
+                    <iconset resource="ressources.qrc">
+                     <normaloff>:/Images/Images/enregistrer.png</normaloff>:/Images/Images/enregistrer.png</iconset>
+                   </property>
                   </widget>
                  </item>
                  <item>
@@ -481,6 +516,10 @@
                   <widget class="QPushButton" name="pushButtonProfil_Annuler">
                    <property name="text">
                     <string>Annuler les changements</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="ressources.qrc">
+                     <normaloff>:/Images/Images/annuler.png</normaloff>:/Images/Images/annuler.png</iconset>
                    </property>
                   </widget>
                  </item>
@@ -569,6 +608,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>
