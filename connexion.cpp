@@ -11,6 +11,7 @@ Connexion::Connexion(QWidget *parent) :
     ui(new Ui::Connexion)
 {
     ui->setupUi(this);
+    ui->labelConnexionError->setText("");
 }
 
 Connexion::~Connexion()
@@ -22,7 +23,7 @@ void Connexion::on_pushButtonValider_clicked()
 {
     qDebug()<<"on_pushButtonValider_clicked()";
 
-    QString cmdConnexion = "SELECT login, motDePasse, actif, idRole FROM Utilisateur WHERE login = '"+ui->lineEditLogin->text()+"' AND motDePasse = PASSWORD('"+ui->lineEditPassword->text()+"' );";
+    QString cmdConnexion = "SELECT login, motDePasse, actif, idRole FROM Utilisateur WHERE login = '"+ui->lineEditLogin->text()+"' AND motDePasse = PASSWORD('"+ui->lineEditPassword->text()+"');";
     QSqlQuery requeteConnexion(cmdConnexion);
 
     qDebug()<<cmdConnexion;
@@ -30,6 +31,10 @@ void Connexion::on_pushButtonValider_clicked()
     if(requeteConnexion.next())
     {
         accept();
+    }
+    else
+    {
+        ui->labelConnexionError->setText("Connexion impossible : Verifiez les informations souscrites");
     }
 
 }
