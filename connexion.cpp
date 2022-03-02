@@ -22,9 +22,10 @@ void Connexion::on_pushButtonValider_clicked()
 {
     qDebug()<<"on_pushButtonValider_clicked()";
 
-    QString cmdConnexion = "SELECT login, motDePasse, actif, idRole FROM Utilisateur WHERE login = "+ui->lineEditLogin->text()+" AND motDePasse = PASSWORD('"+ui->lineEditPassword->text()+"' ); ";
+    QString cmdConnexion = "SELECT login, motDePasse, actif, idRole FROM Utilisateur WHERE login = '"+ui->lineEditLogin->text()+"' AND motDePasse = PASSWORD('"+ui->lineEditPassword->text()+"' );";
     QSqlQuery requeteConnexion(cmdConnexion);
 
+    qDebug()<<cmdConnexion;
     //si la requete renvoie un resultat
     if(requeteConnexion.next())
     {
