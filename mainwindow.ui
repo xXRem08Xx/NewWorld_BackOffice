@@ -31,7 +31,17 @@
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="tab_3">
+      <property name="iconSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <widget class="QWidget" name="tabProfil">
+       <attribute name="icon">
+        <iconset resource="ressources.qrc">
+         <normaloff>:/Images/Images/Profil.png</normaloff>:/Images/Images/Profil.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Profil</string>
        </attribute>

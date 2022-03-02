@@ -3,9 +3,9 @@
         <file>Images/backOffice_logo.jpg</file>
         <file>Images/annuler.png</file>
         <file>Images/application-cog.png</file>
-        <file>Images/Profil.png</file>
         <file>Images/quitter.png</file>
         <file>Images/sauvegarder.png</file>
         <file>Images/valider.png</file>
+        <file>Images/Profil.png</file>
     </qresource>
 </RCC>
