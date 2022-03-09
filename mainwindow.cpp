@@ -101,14 +101,9 @@ void MainWindow::getPlaceInfoUtilisateur(int id)
  * @brief Cette fonction permet d'enregistrer les informations ecrites dans les champs de saisi dans la base de données, enregistrant ainsi les
  * modifications effectuées si il y en a eu
  */
-void MainWindow::on_pushButtonProfil_Enregistrer_clicked()
+void MainWindow::on_pushButtonProfil_Enregistrer_Info_clicked()
 {
     qDebug()<<"MainWindow::on_pushButtonProfil_Enregistrer_clicked()";
-
-    //si la confirmation du mot de passe est la meme que celle renseigné au dessus
-    if (ui->lineEditProfil_password->text() == ui->lineEditProfil_passwordConfirm->text())
-    {
-        ui->labelProfil_Avertissement->setText("Votre mot de passe a été modifié");
 
         QString requeteUpdateUtilisateur = "UPDATE `Utilisateur` SET "
         "`login`='"+ui->lineEditProfil_Login->text()+"',"
@@ -121,18 +116,14 @@ void MainWindow::on_pushButtonProfil_Enregistrer_clicked()
         " WHERE numUtilisateur = '"+QString::number(idUtilisateur)+"';";
         qDebug()<<"requeteUpdateUtilisateur : "<<requeteUpdateUtilisateur;
         QSqlQuery requeteUpdate(requeteUpdateUtilisateur);
-    }
-    else {
-        ui->labelProfil_Avertissement->setText("Votre mot de passe n'est pas identique a la confirmation !");
-        boolLabelProfil_Avertissement = true;
-    }
+
 }
 
 /**
  * @brief Cette fonction sert a remettre les valeurs de base inscrite dans la base de données pour effacer les modifications de texte que
  * l'utilisateur aurai pu faire
  */
-void MainWindow::on_pushButtonProfil_Annuler_clicked()
+void MainWindow::on_pushButtonProfil_Annuler_Info_clicked()
 {
      qDebug()<<"MainWindow::on_pushButtonProfil_Annuler_clicked()";
 
@@ -140,10 +131,8 @@ void MainWindow::on_pushButtonProfil_Annuler_clicked()
      ui->lineEditProfil_Ville->setText(ville);
      ui->lineEditProfil_Mail->setText(mail);
      ui->lineEditProfil_Adresse->setText(adresse);
-     ui->lineEditProfil_password->setText("");
      ui->lineEditProfil_Telephone->setText(telephone);
      ui->lineEditProfil_CodePostal->setText(codePostal);
-     ui->lineEditProfil_passwordConfirm->setText("");
 }
 
 
@@ -152,7 +141,8 @@ void MainWindow::on_pushButtonProfil_Annuler_clicked()
  */
 void MainWindow::createLigne(QTableWidget *tableau)
 {
-    qDebug()<<"MainWindow::createLigne";
+    //qDebug()<<"MainWindow::createLigne";
+
     tableau->insertRow(tableau->rowCount());
 }
 
@@ -162,7 +152,8 @@ void MainWindow::createLigne(QTableWidget *tableau)
  */
 void MainWindow::createColonne(QString nomColonne, QTableWidget *tableau)
 {
-    qDebug()<<"MainWindow::createColonne";
+    //qDebug()<<"MainWindow::createColonne";
+
     //insert une nouvelle colonne
     tableau->insertColumn(tableau->columnCount());
     //modifie le nom de la colonne
@@ -198,12 +189,43 @@ void MainWindow::verifProducteur()
     QString requeteVerification = "SELECT `identifiantProducteur`, `nom`, `prenom`, `mail`, `telephone`, `adresse`, `horaire`, "
                                   "`dateEnregistrement`, `actif`, `identifiantTypeAbonnement` FROM `Producteur` "
                                   "WHERE `identifiantTypeAbonnement` = 2";
+    qDebug()<<"requeteVerification"<<requeteVerification;
+
     QSqlQuery resultatRequete(requeteVerification);
     while (resultatRequete.next())
     {
         createLigne(ui->tableWidgetVerification);
         int numLigne = ui->tableWidgetVerification->rowCount()-1;
 
-        ui->tableWidgetVerification->setItem(numLigne,)
+        //ui->tableWidgetVerification->setItem(numLigne,)
     }
 }
+
+void MainWindow::on_pushButtonProfil_Enregistrer_Mdp_clicked()
+{
+    qDebug()<<"MainWindow::on_pushButtonProfil_Enregistrer_Mdp_clicked";
+
+    //si la confirmation du mot de passe est la meme que celle renseigné au dessus
+    if (ui->lineEditProfil_password->text() == ui->lineEditProfil_passwordConfirm->text())
+    {
+        ui->labelProfil_Avertissement->setText("Votre mot de passe a été modifié");
+
+        QString commandePassword = "UPDATE `Utilisateur` SET `motDePasse` = PASSWORD('" + ui->lineEditProfil_password->text()+"') WHERE numUtilisateur = "+QString::number(idUtilisateur)+";";
+        qDebug()<<"commandePassword = "<<commandePassword;
+
+        QSqlQuery resultatCommandePassword(commandePassword);
+    }
+    else {
+        ui->labelProfil_Avertissement->setText("Votre mot de passe n'est pas identique a la confirmation !");
+        boolLabelProfil_Avertissement = true;
+    }
+}
+
+void MainWindow::on_pushButtonProfil_Annuler_Mdp_clicked()
+{
+    qDebug()<<"MainWindow::on_pushButtonProfil_Annuler_Mdp_clicked";
+
+    ui->lineEditProfil_password->setText("");
+    ui->lineEditProfil_passwordConfirm->setText("");
+}
+

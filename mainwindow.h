@@ -26,9 +26,13 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButtonProfil_Enregistrer_clicked();
+    void on_pushButtonProfil_Enregistrer_Info_clicked();
 
-    void on_pushButtonProfil_Annuler_clicked();
+    void on_pushButtonProfil_Annuler_Info_clicked();
+
+    void on_pushButtonProfil_Enregistrer_Mdp_clicked();
+
+    void on_pushButtonProfil_Annuler_Mdp_clicked();
 
 private:
     Ui::MainWindow *ui;
