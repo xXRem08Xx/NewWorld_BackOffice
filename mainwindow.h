@@ -14,6 +14,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(int identifiantUtilisateur, QWidget *parent = nullptr);
+    int numLigneSelectionne = -1;
 
     bool quitConfirm();
     void closeEvent(QCloseEvent *event);
@@ -22,6 +23,7 @@ public:
     void createColonne(QString nomColonne, QTableWidget *tableau);
     void createTableColonne(QString nomDeLaTable, QTableWidget *tableau);
     void verifProducteur();
+    void listerProducteur();
 
     ~MainWindow();
 
@@ -33,6 +35,12 @@ private slots:
     void on_pushButtonProfil_Enregistrer_Mdp_clicked();
 
     void on_pushButtonProfil_Annuler_Mdp_clicked();
+
+    void on_pushButtonProducteur_EnAttente_Valider_clicked();
+
+    void on_tableWidgetProducteur_producteurAttenteValidation_itemSelectionChanged();
+
+    void on_pushButtonProducteur_listeProducteur_Actif_clicked();
 
 private:
     Ui::MainWindow *ui;

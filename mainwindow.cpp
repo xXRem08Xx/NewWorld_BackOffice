@@ -14,10 +14,11 @@ MainWindow::MainWindow(int identifiantUtilisateur ,QWidget *parent) :
 {
     idUtilisateur = identifiantUtilisateur;
 
+
     ui->setupUi(this);
     ui->labelProfil_Avertissement->setText("");
 
-    //on rempli la fenetre de profil
+    //on execute les fonctions de remplissage des fenetres
     getPlaceInfoUtilisateur(identifiantUtilisateur);
     verifProducteur();
 }
@@ -105,18 +106,18 @@ void MainWindow::on_pushButtonProfil_Enregistrer_Info_clicked()
 {
     qDebug()<<"MainWindow::on_pushButtonProfil_Enregistrer_clicked()";
 
-        QString requeteUpdateUtilisateur = "UPDATE `Utilisateur` SET "
-        "`login`='"+ui->lineEditProfil_Login->text()+"',"
-        "`adresse`='"+ui->lineEditProfil_Adresse->text()+"',"
-        "`ville`='"+ui->lineEditProfil_Ville->text()+"',"
-        "`codePostal`='"+ui->lineEditProfil_CodePostal->text()+"',"
-        "`telephone`='"+ui->lineEditProfil_Telephone->text()+"',"
-        "`motDePasse`=PASSWORD('"+ui->lineEditProfil_password->text()+"'),"
-        "`mail`='"+ui->lineEditProfil_Mail->text()+"'"
-        " WHERE numUtilisateur = '"+QString::number(idUtilisateur)+"';";
-        qDebug()<<"requeteUpdateUtilisateur : "<<requeteUpdateUtilisateur;
-        QSqlQuery requeteUpdate(requeteUpdateUtilisateur);
+    QString requeteUpdateUtilisateur = "UPDATE `Utilisateur` SET "
+                                       "`login`='"+ui->lineEditProfil_Login->text()+"',"
+                                                                                    "`adresse`='"+ui->lineEditProfil_Adresse->text()+"',"
+                                                                                                                                     "`ville`='"+ui->lineEditProfil_Ville->text()+"',"
+                                                                                                                                                                                  "`codePostal`='"+ui->lineEditProfil_CodePostal->text()+"',"
+                                                                                                                                                                                                                                         "`telephone`='"+ui->lineEditProfil_Telephone->text()+"',"
+                                                                                                                                                                                                                                                                                              "`motDePasse`=PASSWORD('"+ui->lineEditProfil_password->text()+"'),"
+                                                                                                                                                                                                                                                                                                                                                            "`mail`='"+ui->lineEditProfil_Mail->text()+"'"
+                                                                                                                                                                                                                                                                                                                                                                                                       " WHERE numUtilisateur = '"+QString::number(idUtilisateur)+"';";
+    qDebug()<<"requeteUpdateUtilisateur : "<<requeteUpdateUtilisateur;
 
+    QSqlQuery requeteUpdate(requeteUpdateUtilisateur);
 }
 
 /**
@@ -125,14 +126,14 @@ void MainWindow::on_pushButtonProfil_Enregistrer_Info_clicked()
  */
 void MainWindow::on_pushButtonProfil_Annuler_Info_clicked()
 {
-     qDebug()<<"MainWindow::on_pushButtonProfil_Annuler_clicked()";
+    qDebug()<<"MainWindow::on_pushButtonProfil_Annuler_clicked()";
 
-     ui->lineEditProfil_Login->setText(login);
-     ui->lineEditProfil_Ville->setText(ville);
-     ui->lineEditProfil_Mail->setText(mail);
-     ui->lineEditProfil_Adresse->setText(adresse);
-     ui->lineEditProfil_Telephone->setText(telephone);
-     ui->lineEditProfil_CodePostal->setText(codePostal);
+    ui->lineEditProfil_Login->setText(login);
+    ui->lineEditProfil_Ville->setText(ville);
+    ui->lineEditProfil_Mail->setText(mail);
+    ui->lineEditProfil_Adresse->setText(adresse);
+    ui->lineEditProfil_Telephone->setText(telephone);
+    ui->lineEditProfil_CodePostal->setText(codePostal);
 }
 
 
@@ -183,24 +184,46 @@ void MainWindow::verifProducteur()
     qDebug()<<"MainWindow::verifProducteur()";
 
     //Creer les colonnes de la table Producteur dans le tableWidget
-    createTableColonne("Producteur", ui->tableWidgetVerification);
-    createLigne(ui->tableWidgetVerification);
+    createTableColonne("Producteur", ui->tableWidgetProducteur_producteurAttenteValidation);
 
-    QString requeteVerification = "SELECT `identifiantProducteur`, `nom`, `prenom`, `mail`, `telephone`, `adresse`, `horaire`, "
-                                  "`dateEnregistrement`, `actif`, `identifiantTypeAbonnement` FROM `Producteur` "
-                                  "WHERE `identifiantTypeAbonnement` = 2";
-    qDebug()<<"requeteVerification"<<requeteVerification;
+    QString requeteProducteur = "SELECT `identifiantProducteur`, `nom`, `prenom`, `mail`, `telephone`, `adresse`, `horaire`, "
+                                "`dateEnregistrement`, `actif`, `identifiantTypeAbonnement` FROM `Producteur` "
+                                "WHERE `identifiantTypeAbonnement` = 2";
+    qDebug()<<"requeteProducteur"<<requeteProducteur;
 
-    QSqlQuery resultatRequete(requeteVerification);
+    QSqlQuery resultatRequete(requeteProducteur);
+
+
+    //tant qu'on a une ligne de resultat a traiter
     while (resultatRequete.next())
     {
-        createLigne(ui->tableWidgetVerification);
-        int numLigne = ui->tableWidgetVerification->rowCount()-1;
+        //on créé une ligne dans le tableWidget
+        createLigne(ui->tableWidgetProducteur_producteurAttenteValidation);
 
-        //ui->tableWidgetVerification->setItem(numLigne,)
+        int numLigne = ui->tableWidgetProducteur_producteurAttenteValidation->rowCount()-1;
+
+        ui->tableWidgetProducteur_producteurAttenteValidation->setItem(numLigne,0, new QTableWidgetItem(resultatRequete.value("identifiantProducteur").toString() ) );
+        ui->tableWidgetProducteur_producteurAttenteValidation->setItem(numLigne,1, new QTableWidgetItem(resultatRequete.value("nom").toString() ) );
+        ui->tableWidgetProducteur_producteurAttenteValidation->setItem(numLigne,2, new QTableWidgetItem(resultatRequete.value("prenom").toString() ) );
+        ui->tableWidgetProducteur_producteurAttenteValidation->setItem(numLigne,3, new QTableWidgetItem(resultatRequete.value("mail").toString() ) );
+        ui->tableWidgetProducteur_producteurAttenteValidation->setItem(numLigne,4, new QTableWidgetItem(resultatRequete.value("telephone").toString() ) );
+        ui->tableWidgetProducteur_producteurAttenteValidation->setItem(numLigne,5, new QTableWidgetItem(resultatRequete.value("adresse").toString() ) );
+        ui->tableWidgetProducteur_producteurAttenteValidation->setItem(numLigne,6, new QTableWidgetItem(resultatRequete.value("horaire").toString() ) );
+        ui->tableWidgetProducteur_producteurAttenteValidation->setItem(numLigne,7, new QTableWidgetItem(resultatRequete.value("dateEnregistrement").toString() ) );
+
     }
 }
 
+void MainWindow::listerProducteur()
+{
+    qDebug()<<"MainWindow::listerProducteur";
+
+
+}
+
+/**
+ * @brief Cette fonction sert a enregistrer le mot de passe qui a été changé
+ */
 void MainWindow::on_pushButtonProfil_Enregistrer_Mdp_clicked()
 {
     qDebug()<<"MainWindow::on_pushButtonProfil_Enregistrer_Mdp_clicked";
@@ -221,11 +244,84 @@ void MainWindow::on_pushButtonProfil_Enregistrer_Mdp_clicked()
     }
 }
 
+/**
+ * @brief Cette fonction sert a remettre les champs de saisi des mot de passe a vide
+ */
 void MainWindow::on_pushButtonProfil_Annuler_Mdp_clicked()
 {
     qDebug()<<"MainWindow::on_pushButtonProfil_Annuler_Mdp_clicked";
 
     ui->lineEditProfil_password->setText("");
     ui->lineEditProfil_passwordConfirm->setText("");
+}
+
+
+void MainWindow::on_pushButtonProducteur_EnAttente_Valider_clicked()
+{
+    qDebug()<<"MainWindow::on_pushButtonProducteur_EnAttente_Valider_clicked";
+
+    QString requeteValidationProducteur = "UPDATE `Producteur` SET identifiantTypeAbonnement = 1, ";
+
+    //si au moins 1 checkBox est cochée
+    if(ui->checkBoxConsultRegistre->isChecked() || ui->checkBoxContactTel->isChecked() || ui->checkBoxVisiteExploitation->isChecked())
+    {
+        //si le numero de la ligne est different que sa valeur de depart --> signifie qu'une ligne a été selectionné
+        if(numLigneSelectionne != -1)
+        {
+            //suivant les checkBox qui sont coché on insere dans la requete les champs a changer
+            if(ui->checkBoxConsultRegistre->isChecked())
+            {
+                requeteValidationProducteur += "consultationRegistre = 1, ";
+            }
+            if(ui->checkBoxContactTel->isChecked())
+            {
+                requeteValidationProducteur += "contactTelephonique = 1, ";
+            }
+            if(ui->checkBoxVisiteExploitation->isChecked())
+            {
+                requeteValidationProducteur += "VisiteExploitation = 1, ";
+            }
+
+            //supprime les 2 derniers caracteres pour enlever ", "
+            requeteValidationProducteur = requeteValidationProducteur.remove(requeteValidationProducteur.size()-2, 2);
+
+            //on termine la requete
+            requeteValidationProducteur += " WHERE `identifiantProducteur` = " + ui->tableWidgetProducteur_producteurAttenteValidation->item(numLigneSelectionne,0)->text() + ";";
+
+            qDebug()<<"requeteValidationProducteur = "<<requeteValidationProducteur;
+            QSqlQuery resultatRequeteValidation(requeteValidationProducteur);
+
+            //on supprime la ligne du tableWidget
+            ui->tableWidgetProducteur_producteurAttenteValidation->removeRow(numLigneSelectionne);
+
+            //on decoche toutes les checkBox
+            ui->checkBoxConsultRegistre->setCheckable(0);
+            ui->checkBoxContactTel->setCheckable(0);
+            ui->checkBoxVisiteExploitation->setCheckable(0);
+        }
+        else {
+            ui->statusBar->showMessage("Veuillez selectionner une ligne dans le tableau.",10000);
+        }
+    }
+
+    else {
+        ui->statusBar->showMessage("Merci de cocher au moins une checkBox avant de valider",10000);
+    }
+}
+
+
+void MainWindow::on_tableWidgetProducteur_producteurAttenteValidation_itemSelectionChanged()
+{
+    qDebug()<<"MainWindow::on_tableWidgetProducteur_producteurAttenteValidation_itemSelectionChanged";
+
+    numLigneSelectionne = ui->tableWidgetProducteur_producteurAttenteValidation->currentRow();
+}
+
+
+void MainWindow::on_pushButtonProducteur_listeProducteur_Actif_clicked()
+{
+    qDebug()<<"MainWindow::on_pushButtonProducteur_listeProducteur_Actif_clicked";
+
+    QString requeteActif = "";
 }
 
