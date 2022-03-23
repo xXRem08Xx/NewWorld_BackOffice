@@ -28,15 +28,18 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    connexion.cpp
+    connexion.cpp \
+    producteurrefuser.cpp
 
 HEADERS += \
         mainwindow.h \
-    connexion.h
+    connexion.h \
+    producteurrefuser.h
 
 FORMS += \
         mainwindow.ui \
-    connexion.ui
+    connexion.ui \
+    producteurrefuser.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

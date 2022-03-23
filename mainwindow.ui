@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>894</width>
+    <width>799</width>
     <height>853</height>
    </rect>
   </property>
@@ -662,6 +662,9 @@
               <property name="selectionBehavior">
                <enum>QAbstractItemView::SelectRows</enum>
               </property>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
              </widget>
             </item>
             <item>
@@ -696,6 +699,12 @@
                <layout class="QVBoxLayout" name="verticalLayout_9">
                 <item>
                  <widget class="QLabel" name="label">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>40</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Element(s) de verification effectué(s) : &lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
@@ -706,6 +715,16 @@
                   <property name="text">
                    <string>Consultation Registre</string>
                   </property>
+                  <property name="icon">
+                   <iconset resource="ressources.qrc">
+                    <normaloff>:/Images/Images/registre.png</normaloff>:/Images/Images/registre.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>30</width>
+                    <height>30</height>
+                   </size>
+                  </property>
                  </widget>
                 </item>
                 <item>
@@ -713,12 +732,49 @@
                   <property name="text">
                    <string>Contact Telephonique</string>
                   </property>
+                  <property name="icon">
+                   <iconset resource="ressources.qrc">
+                    <normaloff>:/Images/Images/telephone.png</normaloff>:/Images/Images/telephone.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>30</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBoxAnnuaire">
+                  <property name="text">
+                   <string>Verification dans l'annuaire</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ressources.qrc">
+                    <normaloff>:/Images/Images/telephone.png</normaloff>:/Images/Images/telephone.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>30</width>
+                    <height>30</height>
+                   </size>
+                  </property>
                  </widget>
                 </item>
                 <item>
                  <widget class="QCheckBox" name="checkBoxVisiteExploitation">
                   <property name="text">
                    <string>Visite de l'exploitation</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ressources.qrc">
+                    <normaloff>:/Images/Images/visite-exploitation.png</normaloff>:/Images/Images/visite-exploitation.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>30</width>
+                    <height>30</height>
+                   </size>
                   </property>
                  </widget>
                 </item>
@@ -789,6 +845,16 @@
                     <property name="text">
                      <string>Valider</string>
                     </property>
+                    <property name="icon">
+                     <iconset resource="ressources.qrc">
+                      <normaloff>:/Images/Images/valider.png</normaloff>:/Images/Images/valider.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>20</width>
+                      <height>20</height>
+                     </size>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -808,6 +874,16 @@
                    <widget class="QPushButton" name="pushButtonProducteur_EnAttente_Refuser">
                     <property name="text">
                      <string>Refuser</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="ressources.qrc">
+                      <normaloff>:/Images/Images/annuler.png</normaloff>:/Images/Images/annuler.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>20</width>
+                      <height>20</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -896,20 +972,90 @@
               <property name="selectionBehavior">
                <enum>QAbstractItemView::SelectRows</enum>
               </property>
+              <attribute name="horizontalHeaderVisible">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
              </widget>
             </item>
             <item>
-             <spacer name="verticalSpacer_14">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>79</height>
-               </size>
-              </property>
-             </spacer>
+             <layout class="QHBoxLayout" name="horizontalLayout_19">
+              <item>
+               <spacer name="verticalSpacer_14">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>79</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_32">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_18">
+                <item>
+                 <spacer name="horizontalSpacer_30">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_listeProducteur_actualiser">
+                  <property name="text">
+                   <string>Actualiser</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="ressources.qrc">
+                    <normaloff>:/Images/Images/actualiser.png</normaloff>:/Images/Images/actualiser.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>22</width>
+                    <height>22</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_31">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_16">
@@ -961,6 +1107,16 @@
                     <property name="text">
                      <string>Mettre Actif</string>
                     </property>
+                    <property name="icon">
+                     <iconset resource="ressources.qrc">
+                      <normaloff>:/Images/Images/valider.png</normaloff>:/Images/Images/valider.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>20</width>
+                      <height>20</height>
+                     </size>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -980,6 +1136,16 @@
                    <widget class="QPushButton" name="pushButtonProducteur_listeProducteur_Inactif">
                     <property name="text">
                      <string>Mettre Inactif</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="ressources.qrc">
+                      <normaloff>:/Images/Images/refuser.png</normaloff>:/Images/Images/refuser.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>20</width>
+                      <height>20</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1061,7 +1227,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>894</width>
+     <width>799</width>
      <height>23</height>
     </rect>
    </property>

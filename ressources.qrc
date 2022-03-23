@@ -8,5 +8,10 @@
         <file>Images/valider.png</file>
         <file>Images/Profil.png</file>
         <file>Images/verification.png</file>
+        <file>Images/refuser.png</file>
+        <file>Images/actualiser.png</file>
+        <file>Images/registre.png</file>
+        <file>Images/telephone.png</file>
+        <file>Images/visite-exploitation.png</file>
     </qresource>
 </RCC>

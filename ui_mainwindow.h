@@ -121,6 +121,7 @@ public:
     QLabel *label;
     QCheckBox *checkBoxConsultRegistre;
     QCheckBox *checkBoxContactTel;
+    QCheckBox *checkBoxAnnuaire;
     QCheckBox *checkBoxVisiteExploitation;
     QSpacerItem *horizontalSpacer_24;
     QHBoxLayout *horizontalLayout_14;
@@ -137,6 +138,28 @@ public:
     QSpacerItem *horizontalSpacer_21;
     QSpacerItem *verticalSpacer_13;
     QWidget *tab_3;
+    QVBoxLayout *verticalLayout_12;
+    QTableWidget *tableWidgetProducteur_listeProducteur;
+    QHBoxLayout *horizontalLayout_19;
+    QSpacerItem *verticalSpacer_14;
+    QSpacerItem *horizontalSpacer_32;
+    QHBoxLayout *horizontalLayout_18;
+    QSpacerItem *horizontalSpacer_30;
+    QPushButton *pushButton_listeProducteur_actualiser;
+    QSpacerItem *horizontalSpacer_31;
+    QHBoxLayout *horizontalLayout_16;
+    QSpacerItem *horizontalSpacer_25;
+    QVBoxLayout *verticalLayout_11;
+    QSpacerItem *verticalSpacer_15;
+    QHBoxLayout *horizontalLayout_17;
+    QSpacerItem *horizontalSpacer_26;
+    QPushButton *pushButtonProducteur_listeProducteur_Actif;
+    QSpacerItem *horizontalSpacer_27;
+    QPushButton *pushButtonProducteur_listeProducteur_Inactif;
+    QSpacerItem *horizontalSpacer_28;
+    QSpacerItem *verticalSpacer_16;
+    QSpacerItem *horizontalSpacer_29;
+    QSpacerItem *verticalSpacer_17;
     QWidget *tab;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -146,7 +169,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(894, 853);
+        MainWindow->resize(799, 853);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Images/Images/backOffice_logo.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -545,10 +568,11 @@ public:
         tableWidgetProducteur_producteurAttenteValidation->setEditTriggers(QAbstractItemView::NoEditTriggers);
         tableWidgetProducteur_producteurAttenteValidation->setSelectionMode(QAbstractItemView::SingleSelection);
         tableWidgetProducteur_producteurAttenteValidation->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidgetProducteur_producteurAttenteValidation->verticalHeader()->setVisible(false);
 
         verticalLayout_10->addWidget(tableWidgetProducteur_producteurAttenteValidation);
 
-        verticalSpacer_12 = new QSpacerItem(20, 11, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_12 = new QSpacerItem(20, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_10->addItem(verticalSpacer_12);
 
@@ -564,21 +588,41 @@ public:
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
         label = new QLabel(tab_2);
         label->setObjectName(QStringLiteral("label"));
+        label->setMaximumSize(QSize(16777215, 40));
 
         verticalLayout_9->addWidget(label);
 
         checkBoxConsultRegistre = new QCheckBox(tab_2);
         checkBoxConsultRegistre->setObjectName(QStringLiteral("checkBoxConsultRegistre"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/Images/Images/registre.png"), QSize(), QIcon::Normal, QIcon::Off);
+        checkBoxConsultRegistre->setIcon(icon4);
+        checkBoxConsultRegistre->setIconSize(QSize(30, 30));
 
         verticalLayout_9->addWidget(checkBoxConsultRegistre);
 
         checkBoxContactTel = new QCheckBox(tab_2);
         checkBoxContactTel->setObjectName(QStringLiteral("checkBoxContactTel"));
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/Images/Images/telephone.png"), QSize(), QIcon::Normal, QIcon::Off);
+        checkBoxContactTel->setIcon(icon5);
+        checkBoxContactTel->setIconSize(QSize(30, 30));
 
         verticalLayout_9->addWidget(checkBoxContactTel);
 
+        checkBoxAnnuaire = new QCheckBox(tab_2);
+        checkBoxAnnuaire->setObjectName(QStringLiteral("checkBoxAnnuaire"));
+        checkBoxAnnuaire->setIcon(icon5);
+        checkBoxAnnuaire->setIconSize(QSize(30, 30));
+
+        verticalLayout_9->addWidget(checkBoxAnnuaire);
+
         checkBoxVisiteExploitation = new QCheckBox(tab_2);
         checkBoxVisiteExploitation->setObjectName(QStringLiteral("checkBoxVisiteExploitation"));
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/Images/Images/visite-exploitation.png"), QSize(), QIcon::Normal, QIcon::Off);
+        checkBoxVisiteExploitation->setIcon(icon6);
+        checkBoxVisiteExploitation->setIconSize(QSize(30, 30));
 
         verticalLayout_9->addWidget(checkBoxVisiteExploitation);
 
@@ -615,6 +659,10 @@ public:
 
         pushButtonProducteur_EnAttente_Valider = new QPushButton(tab_2);
         pushButtonProducteur_EnAttente_Valider->setObjectName(QStringLiteral("pushButtonProducteur_EnAttente_Valider"));
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/Images/Images/valider.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonProducteur_EnAttente_Valider->setIcon(icon7);
+        pushButtonProducteur_EnAttente_Valider->setIconSize(QSize(20, 20));
 
         horizontalLayout->addWidget(pushButtonProducteur_EnAttente_Valider);
 
@@ -624,6 +672,8 @@ public:
 
         pushButtonProducteur_EnAttente_Refuser = new QPushButton(tab_2);
         pushButtonProducteur_EnAttente_Refuser->setObjectName(QStringLiteral("pushButtonProducteur_EnAttente_Refuser"));
+        pushButtonProducteur_EnAttente_Refuser->setIcon(icon2);
+        pushButtonProducteur_EnAttente_Refuser->setIconSize(QSize(20, 20));
 
         horizontalLayout->addWidget(pushButtonProducteur_EnAttente_Refuser);
 
@@ -648,20 +698,139 @@ public:
 
         verticalLayout_10->addLayout(horizontalLayout_14);
 
-        verticalSpacer_13 = new QSpacerItem(20, 11, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_13 = new QSpacerItem(20, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_10->addItem(verticalSpacer_13);
 
         tabWidgetVerification->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QStringLiteral("tab_3"));
+        verticalLayout_12 = new QVBoxLayout(tab_3);
+        verticalLayout_12->setSpacing(6);
+        verticalLayout_12->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        tableWidgetProducteur_listeProducteur = new QTableWidget(tab_3);
+        tableWidgetProducteur_listeProducteur->setObjectName(QStringLiteral("tableWidgetProducteur_listeProducteur"));
+        tableWidgetProducteur_listeProducteur->setMinimumSize(QSize(0, 350));
+        tableWidgetProducteur_listeProducteur->setAutoScroll(true);
+        tableWidgetProducteur_listeProducteur->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tableWidgetProducteur_listeProducteur->setSelectionMode(QAbstractItemView::SingleSelection);
+        tableWidgetProducteur_listeProducteur->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidgetProducteur_listeProducteur->horizontalHeader()->setVisible(true);
+        tableWidgetProducteur_listeProducteur->verticalHeader()->setVisible(false);
+
+        verticalLayout_12->addWidget(tableWidgetProducteur_listeProducteur);
+
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setSpacing(6);
+        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
+        verticalSpacer_14 = new QSpacerItem(20, 79, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        horizontalLayout_19->addItem(verticalSpacer_14);
+
+        horizontalSpacer_32 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_19->addItem(horizontalSpacer_32);
+
+        horizontalLayout_18 = new QHBoxLayout();
+        horizontalLayout_18->setSpacing(6);
+        horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
+        horizontalSpacer_30 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_18->addItem(horizontalSpacer_30);
+
+        pushButton_listeProducteur_actualiser = new QPushButton(tab_3);
+        pushButton_listeProducteur_actualiser->setObjectName(QStringLiteral("pushButton_listeProducteur_actualiser"));
+        QIcon icon8;
+        icon8.addFile(QStringLiteral(":/Images/Images/actualiser.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_listeProducteur_actualiser->setIcon(icon8);
+        pushButton_listeProducteur_actualiser->setIconSize(QSize(22, 22));
+
+        horizontalLayout_18->addWidget(pushButton_listeProducteur_actualiser);
+
+        horizontalSpacer_31 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_18->addItem(horizontalSpacer_31);
+
+
+        horizontalLayout_19->addLayout(horizontalLayout_18);
+
+
+        verticalLayout_12->addLayout(horizontalLayout_19);
+
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setSpacing(6);
+        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
+        horizontalSpacer_25 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_16->addItem(horizontalSpacer_25);
+
+        verticalLayout_11 = new QVBoxLayout();
+        verticalLayout_11->setSpacing(6);
+        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        verticalSpacer_15 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_11->addItem(verticalSpacer_15);
+
+        horizontalLayout_17 = new QHBoxLayout();
+        horizontalLayout_17->setSpacing(6);
+        horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
+        horizontalSpacer_26 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_17->addItem(horizontalSpacer_26);
+
+        pushButtonProducteur_listeProducteur_Actif = new QPushButton(tab_3);
+        pushButtonProducteur_listeProducteur_Actif->setObjectName(QStringLiteral("pushButtonProducteur_listeProducteur_Actif"));
+        pushButtonProducteur_listeProducteur_Actif->setIcon(icon7);
+        pushButtonProducteur_listeProducteur_Actif->setIconSize(QSize(20, 20));
+
+        horizontalLayout_17->addWidget(pushButtonProducteur_listeProducteur_Actif);
+
+        horizontalSpacer_27 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_17->addItem(horizontalSpacer_27);
+
+        pushButtonProducteur_listeProducteur_Inactif = new QPushButton(tab_3);
+        pushButtonProducteur_listeProducteur_Inactif->setObjectName(QStringLiteral("pushButtonProducteur_listeProducteur_Inactif"));
+        QIcon icon9;
+        icon9.addFile(QStringLiteral(":/Images/Images/refuser.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonProducteur_listeProducteur_Inactif->setIcon(icon9);
+        pushButtonProducteur_listeProducteur_Inactif->setIconSize(QSize(20, 20));
+
+        horizontalLayout_17->addWidget(pushButtonProducteur_listeProducteur_Inactif);
+
+        horizontalSpacer_28 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_17->addItem(horizontalSpacer_28);
+
+
+        verticalLayout_11->addLayout(horizontalLayout_17);
+
+        verticalSpacer_16 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_11->addItem(verticalSpacer_16);
+
+
+        horizontalLayout_16->addLayout(verticalLayout_11);
+
+        horizontalSpacer_29 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_16->addItem(horizontalSpacer_29);
+
+
+        verticalLayout_12->addLayout(horizontalLayout_16);
+
+        verticalSpacer_17 = new QSpacerItem(20, 78, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_12->addItem(verticalSpacer_17);
+
         tabWidgetVerification->addTab(tab_3, QString());
 
         verticalLayout_4->addWidget(tabWidgetVerification);
 
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/Images/Images/verification.png"), QSize(), QIcon::Normal, QIcon::Off);
-        tabWidgetGlobal->addTab(tabVerification, icon4, QString());
+        QIcon icon10;
+        icon10.addFile(QStringLiteral(":/Images/Images/verification.png"), QSize(), QIcon::Normal, QIcon::Off);
+        tabWidgetGlobal->addTab(tabVerification, icon10, QString());
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         tabWidgetGlobal->addTab(tab, QString());
@@ -671,7 +840,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 894, 23));
+        menuBar->setGeometry(QRect(0, 0, 799, 23));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -713,10 +882,14 @@ public:
         label->setText(QApplication::translate("MainWindow", "<html><head/><body><p>Element(s) de verification effectu\303\251(s) : </p><p><br/></p></body></html>", nullptr));
         checkBoxConsultRegistre->setText(QApplication::translate("MainWindow", "Consultation Registre", nullptr));
         checkBoxContactTel->setText(QApplication::translate("MainWindow", "Contact Telephonique", nullptr));
+        checkBoxAnnuaire->setText(QApplication::translate("MainWindow", "Verification dans l'annuaire", nullptr));
         checkBoxVisiteExploitation->setText(QApplication::translate("MainWindow", "Visite de l'exploitation", nullptr));
         pushButtonProducteur_EnAttente_Valider->setText(QApplication::translate("MainWindow", "Valider", nullptr));
         pushButtonProducteur_EnAttente_Refuser->setText(QApplication::translate("MainWindow", "Refuser", nullptr));
         tabWidgetVerification->setTabText(tabWidgetVerification->indexOf(tab_2), QApplication::translate("MainWindow", "En Attente", nullptr));
+        pushButton_listeProducteur_actualiser->setText(QApplication::translate("MainWindow", "Actualiser", nullptr));
+        pushButtonProducteur_listeProducteur_Actif->setText(QApplication::translate("MainWindow", "Mettre Actif", nullptr));
+        pushButtonProducteur_listeProducteur_Inactif->setText(QApplication::translate("MainWindow", "Mettre Inactif", nullptr));
         tabWidgetVerification->setTabText(tabWidgetVerification->indexOf(tab_3), QApplication::translate("MainWindow", "Liste Producteur", nullptr));
         tabWidgetGlobal->setTabText(tabWidgetGlobal->indexOf(tabVerification), QApplication::translate("MainWindow", "Producteur", nullptr));
         tabWidgetGlobal->setTabText(tabWidgetGlobal->indexOf(tab), QApplication::translate("MainWindow", "Administration", nullptr));
