@@ -109,7 +109,7 @@ public:
     QSpacerItem *horizontalSpacer_19;
     QSpacerItem *verticalSpacer_9;
     QWidget *tabVerification;
-    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_41;
     QTabWidget *tabWidgetVerification;
     QWidget *tab_2;
     QVBoxLayout *verticalLayout_10;
@@ -152,14 +152,54 @@ public:
     QVBoxLayout *verticalLayout_11;
     QSpacerItem *verticalSpacer_15;
     QHBoxLayout *horizontalLayout_17;
-    QSpacerItem *horizontalSpacer_26;
-    QPushButton *pushButtonProducteur_listeProducteur_Actif;
     QSpacerItem *horizontalSpacer_27;
     QPushButton *pushButtonProducteur_listeProducteur_Inactif;
     QSpacerItem *horizontalSpacer_28;
     QSpacerItem *verticalSpacer_16;
     QSpacerItem *horizontalSpacer_29;
     QSpacerItem *verticalSpacer_17;
+    QWidget *tab_5;
+    QVBoxLayout *verticalLayout_4;
+    QTableWidget *tableWidgetProducteur_listeProducteurInactif;
+    QHBoxLayout *horizontalLayout_37;
+    QSpacerItem *verticalSpacer_34;
+    QSpacerItem *horizontalSpacer_64;
+    QHBoxLayout *horizontalLayout_38;
+    QSpacerItem *horizontalSpacer_65;
+    QPushButton *pushButton_listeProducteurInactif_actualiser;
+    QSpacerItem *horizontalSpacer_66;
+    QHBoxLayout *horizontalLayout_39;
+    QSpacerItem *horizontalSpacer_67;
+    QVBoxLayout *verticalLayout_22;
+    QSpacerItem *verticalSpacer_35;
+    QHBoxLayout *horizontalLayout_40;
+    QSpacerItem *horizontalSpacer_68;
+    QPushButton *pushButtonProducteur_listeProducteurInactif_activation;
+    QSpacerItem *horizontalSpacer_69;
+    QSpacerItem *verticalSpacer_36;
+    QSpacerItem *horizontalSpacer_70;
+    QSpacerItem *verticalSpacer_37;
+    QWidget *tab_4;
+    QVBoxLayout *verticalLayout_14;
+    QTableWidget *tableWidgetProducteur_listeInvalidation;
+    QHBoxLayout *horizontalLayout_20;
+    QSpacerItem *verticalSpacer_18;
+    QSpacerItem *horizontalSpacer_33;
+    QHBoxLayout *horizontalLayout_21;
+    QSpacerItem *horizontalSpacer_34;
+    QPushButton *pushButton_listeInvalidation_actualiser;
+    QSpacerItem *horizontalSpacer_35;
+    QHBoxLayout *horizontalLayout_22;
+    QSpacerItem *horizontalSpacer_36;
+    QVBoxLayout *verticalLayout_13;
+    QSpacerItem *verticalSpacer_19;
+    QHBoxLayout *horizontalLayout_24;
+    QSpacerItem *horizontalSpacer_26;
+    QPushButton *pushButtonInvalidation_changeRaison;
+    QSpacerItem *horizontalSpacer_38;
+    QSpacerItem *verticalSpacer_20;
+    QSpacerItem *horizontalSpacer_40;
+    QSpacerItem *verticalSpacer_21;
     QWidget *tab;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -169,7 +209,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(799, 853);
+        MainWindow->resize(929, 960);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Images/Images/backOffice_logo.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -549,10 +589,10 @@ public:
         tabWidgetGlobal->addTab(tabProfil, icon3, QString());
         tabVerification = new QWidget();
         tabVerification->setObjectName(QStringLiteral("tabVerification"));
-        verticalLayout_4 = new QVBoxLayout(tabVerification);
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        horizontalLayout_41 = new QHBoxLayout(tabVerification);
+        horizontalLayout_41->setSpacing(6);
+        horizontalLayout_41->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_41->setObjectName(QStringLiteral("horizontalLayout_41"));
         tabWidgetVerification = new QTabWidget(tabVerification);
         tabWidgetVerification->setObjectName(QStringLiteral("tabWidgetVerification"));
         tab_2 = new QWidget();
@@ -775,17 +815,6 @@ public:
         horizontalLayout_17 = new QHBoxLayout();
         horizontalLayout_17->setSpacing(6);
         horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
-        horizontalSpacer_26 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_17->addItem(horizontalSpacer_26);
-
-        pushButtonProducteur_listeProducteur_Actif = new QPushButton(tab_3);
-        pushButtonProducteur_listeProducteur_Actif->setObjectName(QStringLiteral("pushButtonProducteur_listeProducteur_Actif"));
-        pushButtonProducteur_listeProducteur_Actif->setIcon(icon7);
-        pushButtonProducteur_listeProducteur_Actif->setIconSize(QSize(20, 20));
-
-        horizontalLayout_17->addWidget(pushButtonProducteur_listeProducteur_Actif);
-
         horizontalSpacer_27 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_17->addItem(horizontalSpacer_27);
@@ -825,8 +854,222 @@ public:
         verticalLayout_12->addItem(verticalSpacer_17);
 
         tabWidgetVerification->addTab(tab_3, QString());
+        tab_5 = new QWidget();
+        tab_5->setObjectName(QStringLiteral("tab_5"));
+        verticalLayout_4 = new QVBoxLayout(tab_5);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        tableWidgetProducteur_listeProducteurInactif = new QTableWidget(tab_5);
+        tableWidgetProducteur_listeProducteurInactif->setObjectName(QStringLiteral("tableWidgetProducteur_listeProducteurInactif"));
+        tableWidgetProducteur_listeProducteurInactif->setMinimumSize(QSize(0, 350));
+        tableWidgetProducteur_listeProducteurInactif->setAutoScroll(true);
+        tableWidgetProducteur_listeProducteurInactif->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tableWidgetProducteur_listeProducteurInactif->setSelectionMode(QAbstractItemView::SingleSelection);
+        tableWidgetProducteur_listeProducteurInactif->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidgetProducteur_listeProducteurInactif->horizontalHeader()->setVisible(true);
+        tableWidgetProducteur_listeProducteurInactif->verticalHeader()->setVisible(false);
 
-        verticalLayout_4->addWidget(tabWidgetVerification);
+        verticalLayout_4->addWidget(tableWidgetProducteur_listeProducteurInactif);
+
+        horizontalLayout_37 = new QHBoxLayout();
+        horizontalLayout_37->setSpacing(6);
+        horizontalLayout_37->setObjectName(QStringLiteral("horizontalLayout_37"));
+        verticalSpacer_34 = new QSpacerItem(20, 79, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        horizontalLayout_37->addItem(verticalSpacer_34);
+
+        horizontalSpacer_64 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_37->addItem(horizontalSpacer_64);
+
+        horizontalLayout_38 = new QHBoxLayout();
+        horizontalLayout_38->setSpacing(6);
+        horizontalLayout_38->setObjectName(QStringLiteral("horizontalLayout_38"));
+        horizontalSpacer_65 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_38->addItem(horizontalSpacer_65);
+
+        pushButton_listeProducteurInactif_actualiser = new QPushButton(tab_5);
+        pushButton_listeProducteurInactif_actualiser->setObjectName(QStringLiteral("pushButton_listeProducteurInactif_actualiser"));
+        pushButton_listeProducteurInactif_actualiser->setIcon(icon8);
+        pushButton_listeProducteurInactif_actualiser->setIconSize(QSize(22, 22));
+
+        horizontalLayout_38->addWidget(pushButton_listeProducteurInactif_actualiser);
+
+        horizontalSpacer_66 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_38->addItem(horizontalSpacer_66);
+
+
+        horizontalLayout_37->addLayout(horizontalLayout_38);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_37);
+
+        horizontalLayout_39 = new QHBoxLayout();
+        horizontalLayout_39->setSpacing(6);
+        horizontalLayout_39->setObjectName(QStringLiteral("horizontalLayout_39"));
+        horizontalSpacer_67 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_39->addItem(horizontalSpacer_67);
+
+        verticalLayout_22 = new QVBoxLayout();
+        verticalLayout_22->setSpacing(6);
+        verticalLayout_22->setObjectName(QStringLiteral("verticalLayout_22"));
+        verticalSpacer_35 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_22->addItem(verticalSpacer_35);
+
+        horizontalLayout_40 = new QHBoxLayout();
+        horizontalLayout_40->setSpacing(6);
+        horizontalLayout_40->setObjectName(QStringLiteral("horizontalLayout_40"));
+        horizontalSpacer_68 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_40->addItem(horizontalSpacer_68);
+
+        pushButtonProducteur_listeProducteurInactif_activation = new QPushButton(tab_5);
+        pushButtonProducteur_listeProducteurInactif_activation->setObjectName(QStringLiteral("pushButtonProducteur_listeProducteurInactif_activation"));
+        pushButtonProducteur_listeProducteurInactif_activation->setIcon(icon7);
+        pushButtonProducteur_listeProducteurInactif_activation->setIconSize(QSize(20, 20));
+
+        horizontalLayout_40->addWidget(pushButtonProducteur_listeProducteurInactif_activation);
+
+        horizontalSpacer_69 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_40->addItem(horizontalSpacer_69);
+
+
+        verticalLayout_22->addLayout(horizontalLayout_40);
+
+        verticalSpacer_36 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_22->addItem(verticalSpacer_36);
+
+
+        horizontalLayout_39->addLayout(verticalLayout_22);
+
+        horizontalSpacer_70 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_39->addItem(horizontalSpacer_70);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_39);
+
+        verticalSpacer_37 = new QSpacerItem(20, 131, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_4->addItem(verticalSpacer_37);
+
+        tabWidgetVerification->addTab(tab_5, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QStringLiteral("tab_4"));
+        verticalLayout_14 = new QVBoxLayout(tab_4);
+        verticalLayout_14->setSpacing(6);
+        verticalLayout_14->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
+        tableWidgetProducteur_listeInvalidation = new QTableWidget(tab_4);
+        tableWidgetProducteur_listeInvalidation->setObjectName(QStringLiteral("tableWidgetProducteur_listeInvalidation"));
+        tableWidgetProducteur_listeInvalidation->setMinimumSize(QSize(0, 350));
+        tableWidgetProducteur_listeInvalidation->setAutoScroll(true);
+        tableWidgetProducteur_listeInvalidation->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        tableWidgetProducteur_listeInvalidation->setSelectionMode(QAbstractItemView::SingleSelection);
+        tableWidgetProducteur_listeInvalidation->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidgetProducteur_listeInvalidation->horizontalHeader()->setVisible(true);
+        tableWidgetProducteur_listeInvalidation->verticalHeader()->setVisible(false);
+
+        verticalLayout_14->addWidget(tableWidgetProducteur_listeInvalidation);
+
+        horizontalLayout_20 = new QHBoxLayout();
+        horizontalLayout_20->setSpacing(6);
+        horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
+        verticalSpacer_18 = new QSpacerItem(20, 79, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        horizontalLayout_20->addItem(verticalSpacer_18);
+
+        horizontalSpacer_33 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_20->addItem(horizontalSpacer_33);
+
+        horizontalLayout_21 = new QHBoxLayout();
+        horizontalLayout_21->setSpacing(6);
+        horizontalLayout_21->setObjectName(QStringLiteral("horizontalLayout_21"));
+        horizontalSpacer_34 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_21->addItem(horizontalSpacer_34);
+
+        pushButton_listeInvalidation_actualiser = new QPushButton(tab_4);
+        pushButton_listeInvalidation_actualiser->setObjectName(QStringLiteral("pushButton_listeInvalidation_actualiser"));
+        pushButton_listeInvalidation_actualiser->setIcon(icon8);
+        pushButton_listeInvalidation_actualiser->setIconSize(QSize(22, 22));
+
+        horizontalLayout_21->addWidget(pushButton_listeInvalidation_actualiser);
+
+        horizontalSpacer_35 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_21->addItem(horizontalSpacer_35);
+
+
+        horizontalLayout_20->addLayout(horizontalLayout_21);
+
+
+        verticalLayout_14->addLayout(horizontalLayout_20);
+
+        horizontalLayout_22 = new QHBoxLayout();
+        horizontalLayout_22->setSpacing(6);
+        horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
+        horizontalSpacer_36 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_22->addItem(horizontalSpacer_36);
+
+        verticalLayout_13 = new QVBoxLayout();
+        verticalLayout_13->setSpacing(6);
+        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
+        verticalSpacer_19 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_13->addItem(verticalSpacer_19);
+
+        horizontalLayout_24 = new QHBoxLayout();
+        horizontalLayout_24->setSpacing(6);
+        horizontalLayout_24->setObjectName(QStringLiteral("horizontalLayout_24"));
+        horizontalSpacer_26 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_24->addItem(horizontalSpacer_26);
+
+        pushButtonInvalidation_changeRaison = new QPushButton(tab_4);
+        pushButtonInvalidation_changeRaison->setObjectName(QStringLiteral("pushButtonInvalidation_changeRaison"));
+        pushButtonInvalidation_changeRaison->setIcon(icon1);
+        pushButtonInvalidation_changeRaison->setIconSize(QSize(20, 20));
+
+        horizontalLayout_24->addWidget(pushButtonInvalidation_changeRaison);
+
+        horizontalSpacer_38 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_24->addItem(horizontalSpacer_38);
+
+
+        verticalLayout_13->addLayout(horizontalLayout_24);
+
+        verticalSpacer_20 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_13->addItem(verticalSpacer_20);
+
+
+        horizontalLayout_22->addLayout(verticalLayout_13);
+
+        horizontalSpacer_40 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_22->addItem(horizontalSpacer_40);
+
+
+        verticalLayout_14->addLayout(horizontalLayout_22);
+
+        verticalSpacer_21 = new QSpacerItem(20, 70, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_14->addItem(verticalSpacer_21);
+
+        tabWidgetVerification->addTab(tab_4, QString());
+
+        horizontalLayout_41->addWidget(tabWidgetVerification);
 
         QIcon icon10;
         icon10.addFile(QStringLiteral(":/Images/Images/verification.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -840,7 +1083,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 799, 23));
+        menuBar->setGeometry(QRect(0, 0, 929, 23));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -852,7 +1095,7 @@ public:
         retranslateUi(MainWindow);
 
         tabWidgetGlobal->setCurrentIndex(1);
-        tabWidgetVerification->setCurrentIndex(0);
+        tabWidgetVerification->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -888,9 +1131,14 @@ public:
         pushButtonProducteur_EnAttente_Refuser->setText(QApplication::translate("MainWindow", "Refuser", nullptr));
         tabWidgetVerification->setTabText(tabWidgetVerification->indexOf(tab_2), QApplication::translate("MainWindow", "En Attente", nullptr));
         pushButton_listeProducteur_actualiser->setText(QApplication::translate("MainWindow", "Actualiser", nullptr));
-        pushButtonProducteur_listeProducteur_Actif->setText(QApplication::translate("MainWindow", "Mettre Actif", nullptr));
         pushButtonProducteur_listeProducteur_Inactif->setText(QApplication::translate("MainWindow", "Mettre Inactif", nullptr));
-        tabWidgetVerification->setTabText(tabWidgetVerification->indexOf(tab_3), QApplication::translate("MainWindow", "Liste Producteur", nullptr));
+        tabWidgetVerification->setTabText(tabWidgetVerification->indexOf(tab_3), QApplication::translate("MainWindow", "Liste Producteur Actif", nullptr));
+        pushButton_listeProducteurInactif_actualiser->setText(QApplication::translate("MainWindow", "Actualiser", nullptr));
+        pushButtonProducteur_listeProducteurInactif_activation->setText(QApplication::translate("MainWindow", "Mettre Actif", nullptr));
+        tabWidgetVerification->setTabText(tabWidgetVerification->indexOf(tab_5), QApplication::translate("MainWindow", "Liste Producteur Inactif", nullptr));
+        pushButton_listeInvalidation_actualiser->setText(QApplication::translate("MainWindow", "Actualiser", nullptr));
+        pushButtonInvalidation_changeRaison->setText(QApplication::translate("MainWindow", "Changer raison Refus", nullptr));
+        tabWidgetVerification->setTabText(tabWidgetVerification->indexOf(tab_4), QApplication::translate("MainWindow", "Invalidation", nullptr));
         tabWidgetGlobal->setTabText(tabWidgetGlobal->indexOf(tabVerification), QApplication::translate("MainWindow", "Producteur", nullptr));
         tabWidgetGlobal->setTabText(tabWidgetGlobal->indexOf(tab), QApplication::translate("MainWindow", "Administration", nullptr));
     } // retranslateUi

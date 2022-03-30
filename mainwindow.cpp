@@ -27,6 +27,8 @@ MainWindow::MainWindow(int identifiantUtilisateur ,QWidget *parent) :
     verifProducteur();
     //liste des producteurs sauf ceux en attente
     listerProducteur();
+    listerInactif();
+    listerInvalidation();
 
 
 }
@@ -191,6 +193,7 @@ void MainWindow::verifProducteur()
 {
     qDebug()<<"MainWindow::verifProducteur()";
 
+    ui->tableWidgetProducteur_producteurAttenteValidation->setColumnCount(0);
     //Creer les colonnes de la table Producteur dans le tableWidget
     createTableColonne("Producteur", ui->tableWidgetProducteur_producteurAttenteValidation);
 
@@ -226,11 +229,14 @@ void MainWindow::verifProducteur()
     //on modifie l'affichage des colonnes pour une meilleur visibilité
     ui->tableWidgetProducteur_producteurAttenteValidation->resizeColumnsToContents();
     ui->tableWidgetProducteur_producteurAttenteValidation->resizeRowsToContents();
+
 }
 
 void MainWindow::listerProducteur()
 {
     qDebug()<<"MainWindow::listerProducteur";
+
+    ui->tableWidgetProducteur_listeProducteur->setColumnCount(0);
 
     int nombreDeLigne = ui->tableWidgetProducteur_listeProducteur->rowCount();
 
@@ -244,7 +250,7 @@ void MainWindow::listerProducteur()
     createTableColonne("Producteur", ui->tableWidgetProducteur_listeProducteur);
 
     QString requeteProducteur = "SELECT * FROM `Producteur` "
-                                "WHERE `identifiantTypeAbonnement` != 2";
+                                "WHERE `identifiantTypeAbonnement` = 1 && `actif` = 1";
     qDebug()<<"requeteProducteur"<<requeteProducteur;
 
     QSqlQuery resultatRequete(requeteProducteur);
@@ -276,6 +282,110 @@ void MainWindow::listerProducteur()
     ui->tableWidgetProducteur_listeProducteur->resizeColumnsToContents();
     ui->tableWidgetProducteur_listeProducteur->resizeRowsToContents();
 }
+
+void MainWindow::listerInvalidation()
+{
+    qDebug()<<"MainWindow::listerInvalidation";
+
+    ui->tableWidgetProducteur_listeInvalidation->setColumnCount(0);
+
+    int nombreDeLigne = ui->tableWidgetProducteur_listeInvalidation->rowCount();
+
+    //on supprime toutes les colonnes si il y en a
+    for(int compteur = 0; compteur < nombreDeLigne; compteur++)
+    {
+        ui->tableWidgetProducteur_listeInvalidation->removeRow(0);
+    }
+
+    //Creer les colonnes de la table Producteur dans le tableWidget
+    createTableColonne("Producteur", ui->tableWidgetProducteur_listeInvalidation);
+
+    QString requeteProducteur = "SELECT * FROM `Producteur` "
+                                "WHERE `identifiantTypeAbonnement` = 3";
+    qDebug()<<"requeteProducteur"<<requeteProducteur;
+
+    QSqlQuery resultatRequete(requeteProducteur);
+
+
+    //tant qu'on a une ligne de resultat a traiter
+    while (resultatRequete.next())
+    {
+        //on créé une ligne dans le tableWidget
+        createLigne(ui->tableWidgetProducteur_listeInvalidation);
+
+        int numLigne = ui->tableWidgetProducteur_listeInvalidation->rowCount()-1;
+
+        QString requeteColonne = "DESC Producteur";
+        qDebug()<<"requeteColonne = "<<requeteColonne;
+        QSqlQuery query(requeteColonne);
+
+        //on definie un num de colonne qui sera reset a chaque passage de la boucle
+        int numColonne = 0;
+        while (query.next())
+        {
+            ui->tableWidgetProducteur_listeInvalidation->setItem(numLigne,numColonne, new QTableWidgetItem(resultatRequete.value(query.value(0).toString() ).toString() ) );
+            //on augmente la colonne
+            numColonne++;
+        }
+
+    }
+    //on modifie l'affichage des colonnes pour une meilleur visibilité
+    ui->tableWidgetProducteur_listeInvalidation->resizeColumnsToContents();
+    ui->tableWidgetProducteur_listeInvalidation->resizeRowsToContents();
+}
+
+void MainWindow::listerInactif()
+{
+    qDebug()<<"MainWindow::listerInactif";
+
+    ui->tableWidgetProducteur_listeProducteurInactif->setColumnCount(0);
+
+    int nombreDeLigne = ui->tableWidgetProducteur_listeProducteurInactif->rowCount();
+
+    //on supprime toutes les colonnes si il y en a
+    for(int compteur = 0; compteur < nombreDeLigne; compteur++)
+    {
+        ui->tableWidgetProducteur_listeProducteurInactif->removeRow(0);
+    }
+
+    //Creer les colonnes de la table Producteur dans le tableWidget
+    createTableColonne("Producteur", ui->tableWidgetProducteur_listeProducteurInactif);
+
+    QString requeteProducteur = "SELECT * FROM `Producteur` "
+                                "WHERE `identifiantTypeAbonnement` = 1 && `actif` = 0";
+    qDebug()<<"requeteProducteur"<<requeteProducteur;
+
+    QSqlQuery resultatRequete(requeteProducteur);
+
+
+    //tant qu'on a une ligne de resultat a traiter
+    while (resultatRequete.next())
+    {
+        //on créé une ligne dans le tableWidget
+        createLigne(ui->tableWidgetProducteur_listeProducteurInactif);
+
+        int numLigne = ui->tableWidgetProducteur_listeProducteurInactif->rowCount()-1;
+
+        QString requeteColonne = "DESC Producteur";
+        qDebug()<<"requeteColonne = "<<requeteColonne;
+        QSqlQuery query(requeteColonne);
+
+        //on definie un num de colonne qui sera reset a chaque passage de la boucle
+        int numColonne = 0;
+        while (query.next())
+        {
+            ui->tableWidgetProducteur_listeProducteurInactif->setItem(numLigne,numColonne, new QTableWidgetItem(resultatRequete.value(query.value(0).toString() ).toString() ) );
+            //on augmente la colonne
+            numColonne++;
+        }
+
+    }
+    //on modifie l'affichage des colonnes pour une meilleur visibilité
+    ui->tableWidgetProducteur_listeProducteurInactif->resizeColumnsToContents();
+    ui->tableWidgetProducteur_listeProducteurInactif->resizeRowsToContents();
+}
+
+
 
 /**
  * @brief Cette fonction sert a enregistrer le mot de passe qui a été changé
@@ -322,7 +432,7 @@ void MainWindow::on_pushButtonProducteur_EnAttente_Valider_clicked()
     if(ui->checkBoxConsultRegistre->isChecked() || ui->checkBoxContactTel->isChecked() || ui->checkBoxVisiteExploitation->isChecked() || ui->checkBoxAnnuaire->isChecked())
     {
         //si le numero de la ligne est different que sa valeur de depart --> signifie qu'une ligne a été selectionné
-        if(numLigneSelectionne != -1)
+        if(numLigneProdValidSelectionne != -1)
         {
             //suivant les checkBox qui sont coché on insere dans la requete les champs a changer
             if(ui->checkBoxConsultRegistre->isChecked())
@@ -346,19 +456,23 @@ void MainWindow::on_pushButtonProducteur_EnAttente_Valider_clicked()
             requeteValidationProducteur = requeteValidationProducteur.remove(requeteValidationProducteur.size()-2, 2);
 
             //on termine la requete
-            requeteValidationProducteur += " WHERE `identifiantProducteur` = " + ui->tableWidgetProducteur_producteurAttenteValidation->item(numLigneSelectionne,0)->text() + ";";
+            requeteValidationProducteur += " WHERE `identifiantProducteur` = " + ui->tableWidgetProducteur_producteurAttenteValidation->item(numLigneProdValidSelectionne,0)->text() + ";";
 
             qDebug()<<"requeteValidationProducteur = "<<requeteValidationProducteur;
             QSqlQuery resultatRequeteValidation(requeteValidationProducteur);
 
             //on supprime la ligne du tableWidget
-            ui->tableWidgetProducteur_producteurAttenteValidation->removeRow(numLigneSelectionne);
+            ui->tableWidgetProducteur_producteurAttenteValidation->removeRow(numLigneProdValidSelectionne);
 
             //on decoche toutes les checkBox
             ui->checkBoxConsultRegistre->setChecked(false);
             ui->checkBoxContactTel->setChecked(false);
             ui->checkBoxVisiteExploitation->setChecked(false);
             ui->checkBoxAnnuaire->setChecked(false);
+
+            listerInactif();
+            listerInvalidation();
+            listerProducteur();
         }
         else {
             ui->statusBar->showMessage("Veuillez selectionner une ligne dans le tableau.",10000);
@@ -375,7 +489,7 @@ void MainWindow::on_tableWidgetProducteur_producteurAttenteValidation_itemSelect
 {
     qDebug()<<"MainWindow::on_tableWidgetProducteur_producteurAttenteValidation_itemSelectionChanged";
 
-    numLigneSelectionne = ui->tableWidgetProducteur_producteurAttenteValidation->currentRow();
+    numLigneProdValidSelectionne = ui->tableWidgetProducteur_producteurAttenteValidation->currentRow();
     producteurEnAttente = true;
 }
 
@@ -420,6 +534,9 @@ void MainWindow::on_pushButtonProducteur_listeProducteur_Inactif_clicked()
 
         QString requeteActif = "UPDATE `Producteur` SET `actif` = '0' WHERE identifiantProducteur = "+QString::number(numProducteur)+";";
         QSqlQuery requeteProdActif(requeteActif);
+
+        ui->tableWidgetProducteur_listeProducteur->removeRow(numLigne);
+        listerInactif();
     }
 }
 
@@ -446,7 +563,7 @@ void MainWindow::on_pushButtonProducteur_EnAttente_Refuser_clicked()
                                                                                               " WHERE identifiantProducteur = "+QString::number(numProducteur)+";";
             qDebug()<<"requeteRefus"<<requeteRefus;
 
-           QSqlQuery requeteProdActif(requeteRefus);
+            QSqlQuery requeteProdActif(requeteRefus);
         }
         ui->tableWidgetProducteur_producteurAttenteValidation->removeRow(ui->tableWidgetProducteur_producteurAttenteValidation->currentRow());
     }
@@ -458,5 +575,108 @@ void MainWindow::on_pushButton_listeProducteur_actualiser_clicked()
 {
     qDebug()<<"on_pushButton_listeProducteur_actualiser_clicked";
     listerProducteur();
+}
+
+
+void MainWindow::on_pushButtonProducteur_listeInvalidation_Actif_clicked()
+{
+    qDebug()<<"MainWindow::on_pushButtonProducteur_listeInvalidation_Actif_clicked";
+
+    //on verifie si une ligne est selectionné
+    if(listProducteurInvalideRowSelected)
+    {
+        int numLigne = ui->tableWidgetProducteur_listeInvalidation->currentRow();
+        int numProducteur = ui->tableWidgetProducteur_listeInvalidation->item(numLigne,0)->text().toInt();
+
+
+        QString requeteActif = "UPDATE `Producteur` SET `actif` = '1' WHERE identifiantProducteur = "+QString::number(numProducteur)+";";
+        QSqlQuery requeteProdActif(requeteActif);
+
+        qDebug()<<"requeteActif"<<requeteActif;
+    }
+}
+
+
+void MainWindow::on_pushButton_listeInvalidation_actualiser_clicked()
+{
+    qDebug()<<"on_pushButton_listeInvalidation_actualiser_clicked";
+    listerInvalidation();
+
+}
+
+
+void MainWindow::on_pushButtonInvalidation_changeRaison_clicked()
+{
+    qDebug()<<"on_pushButtonInvalidation_changeRaison_clicked";
+
+    //on verifie si une ligne est selectionné
+    if(listProducteurInvalideRowSelected)
+    {
+        qDebug()<<"raisonARecup entré dans le if";
+
+        int numLigne = ui->tableWidgetProducteur_listeInvalidation->currentRow();
+        int numProducteur = ui->tableWidgetProducteur_listeInvalidation->item(numLigne,0)->text().toInt();
+
+        //on execute la fenetre de refus
+        ProducteurRefuser raisonARecup;
+
+        if(raisonARecup.exec() == QDialog::Accepted)
+        {
+            QString raisonRefus = raisonARecup.getText();
+            QString requeteRefus = "UPDATE Producteur SET raisonInvalidation = '"+raisonRefus+"', identifiantTypeAbonnement = 3"
+                                                                                              " WHERE identifiantProducteur = "+QString::number(numProducteur)+";";
+            qDebug()<<"requeteRefus"<<requeteRefus;
+
+            QSqlQuery requeteProdActif(requeteRefus);
+
+            ui->tableWidgetProducteur_listeInvalidation->item(numLigne, 14)->setText(raisonRefus);
+            listerInvalidation();
+        }
+    }
+}
+
+
+void MainWindow::on_tableWidgetProducteur_listeInvalidation_itemSelectionChanged()
+{
+    qDebug()<<"on_tableWidgetProducteur_listeInvalidation_itemSelectionChanged";
+
+    numLigneProdUnvalidSelectionne = ui->tableWidgetProducteur_listeInvalidation->currentRow();
+    listProducteurInvalideRowSelected = true;
+}
+
+
+void MainWindow::on_pushButtonProducteur_listeProducteurInactif_activation_clicked()
+{
+    qDebug()<<"MainWindow::on_pushButtonProducteur_listeProducteurInactif_activation_clicked";
+
+    //on verifie si une ligne est selectionné
+    if(listProducteurInactifRowSelected)
+    {
+        int numLigne = ui->tableWidgetProducteur_listeProducteurInactif->currentRow();
+        int numProducteur = ui->tableWidgetProducteur_listeProducteurInactif->item(numLigne,0)->text().toInt();
+
+
+        QString requeteActif = "UPDATE `Producteur` SET `actif` = '1' WHERE identifiantProducteur = "+QString::number(numProducteur)+";";
+        QSqlQuery requeteProdActif(requeteActif);
+
+        listerProducteur();
+        qDebug()<<"requeteActif"<<requeteActif;
+
+        ui->tableWidgetProducteur_listeProducteurInactif->removeRow(numLigne);
+    }
+}
+
+
+void MainWindow::on_pushButton_listeProducteurInactif_actualiser_clicked()
+{
+    qDebug()<<"on_pushButton_listeProducteurInactif_actualiser_clicked";
+    listerInactif();
+}
+
+
+void MainWindow::on_tableWidgetProducteur_listeProducteurInactif_itemSelectionChanged()
+{
+    qDebug()<<"on_tableWidgetProducteur_listeProducteurInactif_itemSelectionChanged";
+    listProducteurInactifRowSelected = true;
 }
 

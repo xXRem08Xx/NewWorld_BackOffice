@@ -23,6 +23,8 @@ public:
     void createTableColonne(QString nomDeLaTable, QTableWidget *tableau);
     void verifProducteur();
     void listerProducteur();
+    void listerInvalidation();
+    void listerInactif();
 
     ~MainWindow();
 
@@ -49,10 +51,25 @@ private slots:
 
     void on_pushButton_listeProducteur_actualiser_clicked();
 
+    void on_pushButtonProducteur_listeInvalidation_Actif_clicked();
+
+    void on_pushButton_listeInvalidation_actualiser_clicked();
+
+    void on_pushButtonInvalidation_changeRaison_clicked();
+
+    void on_tableWidgetProducteur_listeInvalidation_itemSelectionChanged();
+
+    void on_pushButtonProducteur_listeProducteurInactif_activation_clicked();
+
+    void on_pushButton_listeProducteurInactif_actualiser_clicked();
+
+    void on_tableWidgetProducteur_listeProducteurInactif_itemSelectionChanged();
+
 private:
     Ui::MainWindow *ui;
     int idUtilisateur;
-    int numLigneSelectionne = -1;
+    int numLigneProdValidSelectionne = -1;
+    int numLigneProdUnvalidSelectionne = -1;
 
     QString login;
     QString nom;
@@ -68,6 +85,8 @@ private:
     //si on a pas selectionné de ligne c'est false
     bool listProducteurRowSelected = false;
     bool producteurEnAttente = false;
+    bool listProducteurInvalideRowSelected = false;
+    bool listProducteurInactifRowSelected = false;
 
 };
 
