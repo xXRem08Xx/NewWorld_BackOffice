@@ -9,6 +9,10 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QHeaderView>
+#include <QFileDialog>
+#include <QImage>
+#include <QChar>
+
 
 MainWindow::MainWindow(int identifiantUtilisateur ,QWidget *parent) :
     QMainWindow(parent),
@@ -29,6 +33,11 @@ MainWindow::MainWindow(int identifiantUtilisateur ,QWidget *parent) :
     listerProducteur();
     listerInactif();
     listerInvalidation();
+
+    //on affiche la liste des produit
+    afficheRayon();
+    afficheCategorie();
+    comboBoxCategorie();
 
 
 }
@@ -678,5 +687,282 @@ void MainWindow::on_tableWidgetProducteur_listeProducteurInactif_itemSelectionCh
 {
     qDebug()<<"on_tableWidgetProducteur_listeProducteurInactif_itemSelectionChanged";
     listProducteurInactifRowSelected = true;
+}
+
+
+/*** gestion Produit/categorie/rayon/varieté ***/
+
+void MainWindow::afficheRayon()
+{
+    qDebug()<<"afficheRayon";
+
+    ui->tableWidget_Rayon->setRowCount(0);
+    ui->tableWidget_Rayon->setColumnCount(0);
+
+    //on creer les titres des colonnes
+    ui->tableWidget_Rayon->insertColumn(0);
+    ui->tableWidget_Rayon->setHorizontalHeaderItem(0,new QTableWidgetItem("identifiant"));
+    ui->tableWidget_Rayon->insertColumn(1);
+    ui->tableWidget_Rayon->setHorizontalHeaderItem(1,new QTableWidgetItem("Image"));
+    ui->tableWidget_Rayon->insertColumn(2);
+    ui->tableWidget_Rayon->setHorizontalHeaderItem(2,new QTableWidgetItem("Nom"));
+    QString txtRequeteAfficheRayon = "SELECT `identifiantRayon`, `libelle`, `lienImage` FROM `Rayon`;";
+    QSqlQuery ExecutionRequeteAfficheRayon(txtRequeteAfficheRayon);
+
+    //tant qu'on a une ligne de requete
+    while(ExecutionRequeteAfficheRayon.next())
+    {
+        //on insere une ligne
+        int ligne=ui->tableWidget_Rayon->rowCount();
+        ui->tableWidget_Rayon->insertRow(ligne);
+
+        QLabel *labelimage= new QLabel();
+        labelimage->setPixmap(QPixmap(ExecutionRequeteAfficheRayon.value("lienImage").toString()).scaled(100,100));
+        labelimage->setScaledContents(true);
+
+        //on insere les valeur dans le tableau
+        ui->tableWidget_Rayon->setItem(ligne,0, new QTableWidgetItem(ExecutionRequeteAfficheRayon.value("identifiantRayon").toString()));
+        ui->tableWidget_Rayon->setItem(ligne,2, new QTableWidgetItem(ExecutionRequeteAfficheRayon.value("libelle").toString()));
+        ui->tableWidget_Rayon->setCellWidget(ligne,1,labelimage);
+    }
+    ui->tableWidget_Rayon->resizeColumnsToContents();
+    ui->tableWidget_Rayon->resizeRowsToContents();
+    ui->tableWidget_Rayon->update();
+
+    ui->label_image->setText("");
+    ui->tableWidget_Rayon->resizeColumnsToContents();
+    ui->tableWidget_Rayon->horizontalHeader()->setStretchLastSection(true);
+}
+
+
+void MainWindow::afficheCategorie()
+{
+    qDebug()<<"afficheCategorie";
+
+    ui->tableWidget_Categorie->setRowCount(0);
+    ui->tableWidget_Categorie->setColumnCount(0);
+
+    //on creer les titres des colonnes
+    ui->tableWidget_Categorie->insertColumn(0);
+    ui->tableWidget_Categorie->setHorizontalHeaderItem(0,new QTableWidgetItem("identifiant"));
+    ui->tableWidget_Categorie->insertColumn(1);
+    ui->tableWidget_Categorie->setHorizontalHeaderItem(1,new QTableWidgetItem("Nom Categorie"));
+    ui->tableWidget_Categorie->insertColumn(2);
+    ui->tableWidget_Categorie->setHorizontalHeaderItem(2,new QTableWidgetItem("Nom Rayon"));
+
+    QString txtRequeteAfficheCategorie = "SELECT `identifiantCategorie`, Categorie.`libelle` as libelle, Rayon.libelle as nomRayon FROM `Categorie`,`Rayon` WHERE Categorie.`identifiantRayon` = Rayon.identifiantRayon;";
+    QSqlQuery ExecutionRequeteAfficheCategorie(txtRequeteAfficheCategorie);
+
+    //tant qu'on a une ligne de requete
+    while(ExecutionRequeteAfficheCategorie.next())
+    {
+        //on insere une ligne
+        int ligne=ui->tableWidget_Categorie->rowCount();
+        ui->tableWidget_Categorie->insertRow(ligne);
+
+        //on insere les valeur dans le tableau
+        ui->tableWidget_Categorie->setItem(ligne,0, new QTableWidgetItem(ExecutionRequeteAfficheCategorie.value("identifiantCategorie").toString()));
+        ui->tableWidget_Categorie->setItem(ligne,1, new QTableWidgetItem(ExecutionRequeteAfficheCategorie.value("libelle").toString()));
+        ui->tableWidget_Categorie->setItem(ligne,2, new QTableWidgetItem(ExecutionRequeteAfficheCategorie.value("nomRayon").toString()));
+
+    }
+    ui->tableWidget_Categorie->resizeColumnsToContents();
+    ui->tableWidget_Categorie->resizeRowsToContents();
+    ui->tableWidget_Categorie->update();
+
+    ui->label_image->setText("");
+    ui->tableWidget_Categorie->resizeColumnsToContents();
+    ui->tableWidget_Categorie->horizontalHeader()->setStretchLastSection(true);
+}
+
+void MainWindow::comboBoxCategorie()
+{
+    qDebug()<<"comboBoxCategorie";
+
+    QString requeteAfficheNumeroRayon="SELECT `libelle` FROM `Rayon`;";
+    QSqlQuery afficheRayon(requeteAfficheNumeroRayon);
+
+    ui->comboBox_selectionRayonCategorie->clear();
+    while(afficheRayon.next())
+    {
+        QString libelle = afficheRayon.value("libelle").toString();
+        ui->comboBox_selectionRayonCategorie->addItem(libelle);
+
+    }
+}
+
+void MainWindow::on_pushButton_findRayon_clicked()
+{
+    qDebug()<<"on_pushButton_findRayon_clicked";
+    ui->lineEdit_URLImageRayon->setText(QFileDialog::getOpenFileName(this,tr("Open PNG"),"/home/rmaissa/Images"));
+    ui->label_image->setPixmap(QPixmap(ui->lineEdit_URLImageRayon->text()).scaled(150,150));
+
+}
+
+
+void MainWindow::on_pushButton_AjoutRayon_clicked()
+{
+    qDebug()<<"on_pushButton_AjoutRayon_clicked";
+    QString nom,URLImage;
+    nom = ui->lineEdit_NomRayon->text();
+    URLImage = ui->lineEdit_URLImageRayon->text();
+
+    QString txtRequeteSelectNumeroRayon = "select ifnull((select max(identifiantRayon)+1 from Rayon),1);";
+    QSqlQuery requeteSelectNumeroRayon(txtRequeteSelectNumeroRayon);
+
+    requeteSelectNumeroRayon.next();
+    QString idRayon = requeteSelectNumeroRayon.value(0).toString();
+
+    QString txtRequeteInsertionRayon = "INSERT INTO `Rayon`(`identifiantRayon`, `libelle`, `lienImage`) VALUES ("+idRayon+",'"+nom+"','"+URLImage+"');";
+    qDebug()<<"txtRequeteInsertionRayon"<<txtRequeteInsertionRayon;
+
+    if(!(nom.isEmpty() || URLImage.isEmpty())) {
+        QSqlQuery requeteInsertionRayon(txtRequeteInsertionRayon);
+    }
+    //on met a jour
+    afficheRayon();
+    comboBoxCategorie();
+
+}
+
+
+void MainWindow::on_pushButton_ModifierRayon_clicked()
+{
+    qDebug()<<"on_pushButton_ModifierRayon_clicked";
+    QString nom,urlImage;
+    nom =  ui->lineEdit_NomRayon->text();
+    urlImage = ui->lineEdit_URLImageRayon->text();
+
+    QString requeteUpdateRayon = "UPDATE `Rayon` SET `libelle`='"+nom+"',`lienImage`='"+urlImage+"' WHERE `identifiantRayon` = "+ui->tableWidget_Rayon->selectedItems()[0]->text()+";";
+    qDebug()<<requeteUpdateRayon;
+    QSqlQuery executionUpdateRayon(requeteUpdateRayon);
+    executionUpdateRayon.next();
+    afficheRayon();
+}
+
+
+void MainWindow::on_tableWidget_Rayon_itemSelectionChanged()
+{
+    qDebug()<<"on_tableWidget_Rayon_itemSelectionChanged";
+
+    if(!ui->tableWidget_Rayon->selectedItems().empty())
+    {
+
+        //on remplie les line edits
+        ui->lineEdit_NomRayon->setText(ui->tableWidget_Rayon->selectedItems()[1]->text());
+        //on va recuperer l'url de l'image
+        QString requeteSelectURLImage="select lienImage from Rayon where identifiantRayon ="+ui->tableWidget_Rayon->selectedItems()[0]->text();
+        QSqlQuery ExecutionRequeteSelectURLImage(requeteSelectURLImage);
+        qDebug()<<"ExecutionRequeteSelectURLImage"<<requeteSelectURLImage;
+
+        ExecutionRequeteSelectURLImage.next();
+
+        //on insere le lien de l'image et l'affichage de l'image
+        ui->lineEdit_URLImageRayon->setText(ExecutionRequeteSelectURLImage.value("lienImage").toString());
+        ui->label_image->setPixmap(QPixmap(ExecutionRequeteSelectURLImage.value("lienImage").toString()).scaled(100,100));
+    }
+}
+
+
+void MainWindow::on_pushButton_SupprimerRayon_clicked()
+{
+    qDebug()<<"on_pushButton_SupprimerRayon_clicked";
+
+    //on recupere les valeurs
+    QString nom,urlImage;
+    nom =  ui->lineEdit_NomRayon->text();
+    urlImage = ui->lineEdit_URLImageRayon->text();
+
+    QString requeteSuppRayon = "DELETE FROM `Rayon` WHERE `identifiantRayon` = "+ui->tableWidget_Rayon->selectedItems()[0]->text();
+    qDebug()<<requeteSuppRayon;
+    QSqlQuery executionSuppRayon(requeteSuppRayon);
+    executionSuppRayon.next();
+    afficheRayon();
+}
+
+
+void MainWindow::on_pushButton_AjoutCategorie_clicked()
+{
+    qDebug()<<"on_pushButton_AjoutCategorie_clicked";
+
+    QString nomCategorie, nomRayon;
+    nomCategorie = ui->lineEdit_NomCategorie->text();
+    nomRayon = ui->comboBox_selectionRayonCategorie->currentText();
+    qDebug()<<"nomRayon"<<nomRayon;
+
+    QString txtidRayon = "SELECT `identifiantRayon` FROM `Rayon` WHERE `libelle` = '"+nomRayon+"';";
+    QSqlQuery requeteIdRayon(txtidRayon);
+    requeteIdRayon.next();
+
+    QString idRayon = requeteIdRayon.value(0).toString();
+
+    QString txtRequeteInsertionCategorie = "INSERT INTO `Categorie`(`libelle`, `identifiantRayon`) VALUES ('"+nomCategorie+"','"+idRayon+"');";
+    qDebug()<<"txtRequeteInsertionRayon"<<txtRequeteInsertionCategorie;
+
+    if(!nomCategorie.isEmpty()) {
+        QSqlQuery requeteInsertionCategorie(txtRequeteInsertionCategorie);
+    }
+    //on met a jour
+    afficheCategorie();
+
+}
+
+
+void MainWindow::on_tableWidget_Categorie_itemSelectionChanged()
+{
+    qDebug()<<"on_tableWidget_Categorie_itemSelectionChanged";
+    if(!ui->tableWidget_Categorie->selectedItems().empty())
+    {
+        //on remplie le line edit
+        ui->lineEdit_NomCategorie->setText(ui->tableWidget_Categorie->selectedItems()[1]->text());
+        ui->comboBox_selectionRayonCategorie->setCurrentText(ui->tableWidget_Categorie->selectedItems()[2]->text());
+    }
+}
+
+
+void MainWindow::on_pushButton_ModifierCategorie_clicked()
+{
+    qDebug()<<"on_pushButton_ModifierCategorie_clicked";
+    QString nomCategorie, nomRayon, idRayon;
+    nomCategorie =  ui->lineEdit_NomCategorie->text();
+    nomRayon =  ui->comboBox_selectionRayonCategorie->currentText();
+
+    //on recupere l'id correspondant au libelle choisi dans la comboBox
+    QString txtidRayon = "SELECT `identifiantRayon` FROM `Rayon` WHERE `libelle` = '"+nomRayon+"';";
+    QSqlQuery requeteIdRayon(txtidRayon);
+    requeteIdRayon.next();
+    idRayon = requeteIdRayon.value(0).toString();
+
+
+    QString requeteUpdateCategorie = "UPDATE `Categorie` SET `libelle`='"+nomCategorie+"', `identifiantRayon`='"+idRayon+"' WHERE `identifiantCategorie` = "+ui->tableWidget_Categorie->selectedItems()[0]->text();
+    qDebug()<<requeteUpdateCategorie;
+    QSqlQuery executionUpdateCategorie(requeteUpdateCategorie);
+    executionUpdateCategorie.next();
+
+    //on actualise
+    afficheCategorie();
+}
+
+
+void MainWindow::on_pushButton_SupprimerCategorie_clicked()
+{
+    qDebug()<<"on_pushButton_SupprimerCategorie_clicked";
+
+    QString nomCategorie, nomRayon, idRayon;
+    nomCategorie =  ui->lineEdit_NomCategorie->text();
+    nomRayon =  ui->comboBox_selectionRayonCategorie->currentText();
+
+    //on recupere l'id correspondant au libelle choisi dans la comboBox
+    QString txtidRayon = "SELECT `identifiantRayon` FROM `Rayon` WHERE `libelle` = '"+nomRayon+"';";
+    QSqlQuery requeteIdRayon(txtidRayon);
+    requeteIdRayon.next();
+    idRayon = requeteIdRayon.value(0).toString();
+
+    QString requeteSuppCategorie = "DELETE FROM `Categorie` WHERE `identifiantCategorie` = "+ui->tableWidget_Categorie->selectedItems()[0]->text();
+    qDebug()<<requeteSuppCategorie;
+    QSqlQuery executionSuppCategorie(requeteSuppCategorie);
+
+    //on actualise
+    afficheCategorie();
 }
 

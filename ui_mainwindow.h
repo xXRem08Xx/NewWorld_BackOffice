@@ -13,6 +13,7 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -24,6 +25,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -201,6 +203,122 @@ public:
     QSpacerItem *horizontalSpacer_40;
     QSpacerItem *verticalSpacer_21;
     QWidget *tab;
+    QVBoxLayout *verticalLayout_15;
+    QTabWidget *tabWidget;
+    QWidget *tab_Rayon;
+    QVBoxLayout *verticalLayout_35;
+    QHBoxLayout *horizontalLayout_51;
+    QSpacerItem *horizontalSpacer_93;
+    QLabel *label_37;
+    QSpacerItem *horizontalSpacer_94;
+    QHBoxLayout *horizontalLayout_52;
+    QVBoxLayout *verticalLayout_32;
+    QHBoxLayout *horizontalLayout_53;
+    QSpacerItem *horizontalSpacer_84;
+    QLabel *label_35;
+    QLineEdit *lineEdit_NomRayon;
+    QSpacerItem *horizontalSpacer_85;
+    QHBoxLayout *horizontalLayout_59;
+    QSpacerItem *horizontalSpacer_105;
+    QLabel *label_41;
+    QLabel *label_image;
+    QLineEdit *lineEdit_URLImageRayon;
+    QPushButton *pushButton_findRayon;
+    QSpacerItem *horizontalSpacer_106;
+    QVBoxLayout *verticalLayout_33;
+    QTableWidget *tableWidget_Rayon;
+    QVBoxLayout *verticalLayout_34;
+    QHBoxLayout *horizontalLayout_60;
+    QSpacerItem *horizontalSpacer_107;
+    QPushButton *pushButton_AjoutRayon;
+    QSpacerItem *horizontalSpacer_108;
+    QPushButton *pushButton_ModifierRayon;
+    QSpacerItem *horizontalSpacer_109;
+    QSpacerItem *verticalSpacer_22;
+    QHBoxLayout *horizontalLayout_61;
+    QSpacerItem *horizontalSpacer_110;
+    QPushButton *pushButton_SupprimerRayon;
+    QSpacerItem *horizontalSpacer_111;
+    QWidget *tab_Variete;
+    QVBoxLayout *verticalLayout_39;
+    QHBoxLayout *horizontalLayout_62;
+    QSpacerItem *horizontalSpacer_112;
+    QLabel *label_42;
+    QSpacerItem *horizontalSpacer_113;
+    QHBoxLayout *horizontalLayout_63;
+    QVBoxLayout *verticalLayout_36;
+    QHBoxLayout *horizontalLayout_64;
+    QSpacerItem *horizontalSpacer_114;
+    QLabel *label_43;
+    QLineEdit *lineEdit_NomCategorie;
+    QSpacerItem *horizontalSpacer_115;
+    QHBoxLayout *horizontalLayout_65;
+    QSpacerItem *horizontalSpacer_116;
+    QLabel *label_44;
+    QComboBox *comboBox_selectionRayonCategorie;
+    QSpacerItem *horizontalSpacer_117;
+    QVBoxLayout *verticalLayout_37;
+    QTableWidget *tableWidget_Categorie;
+    QVBoxLayout *verticalLayout_38;
+    QHBoxLayout *horizontalLayout_66;
+    QSpacerItem *horizontalSpacer_118;
+    QPushButton *pushButton_AjoutCategorie;
+    QSpacerItem *horizontalSpacer_119;
+    QPushButton *pushButton_ModifierCategorie;
+    QSpacerItem *horizontalSpacer_120;
+    QSpacerItem *verticalSpacer_23;
+    QHBoxLayout *horizontalLayout_67;
+    QSpacerItem *horizontalSpacer_121;
+    QPushButton *pushButton_SupprimerCategorie;
+    QSpacerItem *horizontalSpacer_122;
+    QWidget *tab_6;
+    QWidget *tab_Produit;
+    QVBoxLayout *verticalLayout_43;
+    QHBoxLayout *horizontalLayout_76;
+    QSpacerItem *horizontalSpacer_137;
+    QLabel *label_50;
+    QSpacerItem *horizontalSpacer_138;
+    QHBoxLayout *horizontalLayout_68;
+    QVBoxLayout *verticalLayout_40;
+    QHBoxLayout *horizontalLayout_69;
+    QSpacerItem *horizontalSpacer_123;
+    QLabel *label_45;
+    QLineEdit *lineEdit_NomProduit;
+    QSpacerItem *horizontalSpacer_124;
+    QHBoxLayout *horizontalLayout_70;
+    QLabel *label_46;
+    QTextEdit *textEdit_InfProduit;
+    QHBoxLayout *horizontalLayout_71;
+    QSpacerItem *horizontalSpacer_126;
+    QLabel *label_47;
+    QLabel *label_photoProduit;
+    QLineEdit *lineEdit_URLImageProduit;
+    QPushButton *pushButton_findProduit;
+    QSpacerItem *horizontalSpacer_127;
+    QHBoxLayout *horizontalLayout_72;
+    QSpacerItem *horizontalSpacer_128;
+    QLabel *label_48;
+    QLineEdit *lineEdit_QuantiteProduit;
+    QSpacerItem *horizontalSpacer_129;
+    QHBoxLayout *horizontalLayout_73;
+    QSpacerItem *horizontalSpacer_130;
+    QLabel *label_49;
+    QComboBox *comboBox_VarieteProduit;
+    QSpacerItem *horizontalSpacer_131;
+    QVBoxLayout *verticalLayout_41;
+    QTableWidget *tableWidget_Produit;
+    QVBoxLayout *verticalLayout_42;
+    QHBoxLayout *horizontalLayout_74;
+    QSpacerItem *horizontalSpacer_132;
+    QPushButton *pushButton_AjoutProduit;
+    QSpacerItem *horizontalSpacer_133;
+    QPushButton *pushButton_ModifierProduit_5;
+    QSpacerItem *horizontalSpacer_134;
+    QSpacerItem *verticalSpacer_24;
+    QHBoxLayout *horizontalLayout_75;
+    QSpacerItem *horizontalSpacer_135;
+    QPushButton *pushButton_SupprimerProduit_5;
+    QSpacerItem *horizontalSpacer_136;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -209,7 +327,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(929, 960);
+        MainWindow->resize(929, 822);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Images/Images/backOffice_logo.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -1076,7 +1194,573 @@ public:
         tabWidgetGlobal->addTab(tabVerification, icon10, QString());
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
-        tabWidgetGlobal->addTab(tab, QString());
+        verticalLayout_15 = new QVBoxLayout(tab);
+        verticalLayout_15->setSpacing(6);
+        verticalLayout_15->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
+        tabWidget = new QTabWidget(tab);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
+        tab_Rayon = new QWidget();
+        tab_Rayon->setObjectName(QStringLiteral("tab_Rayon"));
+        verticalLayout_35 = new QVBoxLayout(tab_Rayon);
+        verticalLayout_35->setSpacing(6);
+        verticalLayout_35->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_35->setObjectName(QStringLiteral("verticalLayout_35"));
+        horizontalLayout_51 = new QHBoxLayout();
+        horizontalLayout_51->setSpacing(6);
+        horizontalLayout_51->setObjectName(QStringLiteral("horizontalLayout_51"));
+        horizontalSpacer_93 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_51->addItem(horizontalSpacer_93);
+
+        label_37 = new QLabel(tab_Rayon);
+        label_37->setObjectName(QStringLiteral("label_37"));
+
+        horizontalLayout_51->addWidget(label_37);
+
+        horizontalSpacer_94 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_51->addItem(horizontalSpacer_94);
+
+
+        verticalLayout_35->addLayout(horizontalLayout_51);
+
+        horizontalLayout_52 = new QHBoxLayout();
+        horizontalLayout_52->setSpacing(6);
+        horizontalLayout_52->setObjectName(QStringLiteral("horizontalLayout_52"));
+        verticalLayout_32 = new QVBoxLayout();
+        verticalLayout_32->setSpacing(6);
+        verticalLayout_32->setObjectName(QStringLiteral("verticalLayout_32"));
+        horizontalLayout_53 = new QHBoxLayout();
+        horizontalLayout_53->setSpacing(6);
+        horizontalLayout_53->setObjectName(QStringLiteral("horizontalLayout_53"));
+        horizontalSpacer_84 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_53->addItem(horizontalSpacer_84);
+
+        label_35 = new QLabel(tab_Rayon);
+        label_35->setObjectName(QStringLiteral("label_35"));
+
+        horizontalLayout_53->addWidget(label_35);
+
+        lineEdit_NomRayon = new QLineEdit(tab_Rayon);
+        lineEdit_NomRayon->setObjectName(QStringLiteral("lineEdit_NomRayon"));
+
+        horizontalLayout_53->addWidget(lineEdit_NomRayon);
+
+        horizontalSpacer_85 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_53->addItem(horizontalSpacer_85);
+
+
+        verticalLayout_32->addLayout(horizontalLayout_53);
+
+        horizontalLayout_59 = new QHBoxLayout();
+        horizontalLayout_59->setSpacing(6);
+        horizontalLayout_59->setObjectName(QStringLiteral("horizontalLayout_59"));
+        horizontalSpacer_105 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_59->addItem(horizontalSpacer_105);
+
+        label_41 = new QLabel(tab_Rayon);
+        label_41->setObjectName(QStringLiteral("label_41"));
+
+        horizontalLayout_59->addWidget(label_41);
+
+        label_image = new QLabel(tab_Rayon);
+        label_image->setObjectName(QStringLiteral("label_image"));
+
+        horizontalLayout_59->addWidget(label_image);
+
+        lineEdit_URLImageRayon = new QLineEdit(tab_Rayon);
+        lineEdit_URLImageRayon->setObjectName(QStringLiteral("lineEdit_URLImageRayon"));
+
+        horizontalLayout_59->addWidget(lineEdit_URLImageRayon);
+
+        pushButton_findRayon = new QPushButton(tab_Rayon);
+        pushButton_findRayon->setObjectName(QStringLiteral("pushButton_findRayon"));
+
+        horizontalLayout_59->addWidget(pushButton_findRayon);
+
+        horizontalSpacer_106 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_59->addItem(horizontalSpacer_106);
+
+
+        verticalLayout_32->addLayout(horizontalLayout_59);
+
+
+        horizontalLayout_52->addLayout(verticalLayout_32);
+
+        verticalLayout_33 = new QVBoxLayout();
+        verticalLayout_33->setSpacing(6);
+        verticalLayout_33->setObjectName(QStringLiteral("verticalLayout_33"));
+        tableWidget_Rayon = new QTableWidget(tab_Rayon);
+        tableWidget_Rayon->setObjectName(QStringLiteral("tableWidget_Rayon"));
+        tableWidget_Rayon->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidget_Rayon->verticalHeader()->setVisible(false);
+
+        verticalLayout_33->addWidget(tableWidget_Rayon);
+
+        verticalLayout_34 = new QVBoxLayout();
+        verticalLayout_34->setSpacing(6);
+        verticalLayout_34->setObjectName(QStringLiteral("verticalLayout_34"));
+        horizontalLayout_60 = new QHBoxLayout();
+        horizontalLayout_60->setSpacing(6);
+        horizontalLayout_60->setObjectName(QStringLiteral("horizontalLayout_60"));
+        horizontalSpacer_107 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_60->addItem(horizontalSpacer_107);
+
+        pushButton_AjoutRayon = new QPushButton(tab_Rayon);
+        pushButton_AjoutRayon->setObjectName(QStringLiteral("pushButton_AjoutRayon"));
+
+        horizontalLayout_60->addWidget(pushButton_AjoutRayon);
+
+        horizontalSpacer_108 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_60->addItem(horizontalSpacer_108);
+
+        pushButton_ModifierRayon = new QPushButton(tab_Rayon);
+        pushButton_ModifierRayon->setObjectName(QStringLiteral("pushButton_ModifierRayon"));
+
+        horizontalLayout_60->addWidget(pushButton_ModifierRayon);
+
+        horizontalSpacer_109 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_60->addItem(horizontalSpacer_109);
+
+
+        verticalLayout_34->addLayout(horizontalLayout_60);
+
+        verticalSpacer_22 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_34->addItem(verticalSpacer_22);
+
+        horizontalLayout_61 = new QHBoxLayout();
+        horizontalLayout_61->setSpacing(6);
+        horizontalLayout_61->setObjectName(QStringLiteral("horizontalLayout_61"));
+        horizontalSpacer_110 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_61->addItem(horizontalSpacer_110);
+
+        pushButton_SupprimerRayon = new QPushButton(tab_Rayon);
+        pushButton_SupprimerRayon->setObjectName(QStringLiteral("pushButton_SupprimerRayon"));
+
+        horizontalLayout_61->addWidget(pushButton_SupprimerRayon);
+
+        horizontalSpacer_111 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_61->addItem(horizontalSpacer_111);
+
+
+        verticalLayout_34->addLayout(horizontalLayout_61);
+
+
+        verticalLayout_33->addLayout(verticalLayout_34);
+
+
+        horizontalLayout_52->addLayout(verticalLayout_33);
+
+
+        verticalLayout_35->addLayout(horizontalLayout_52);
+
+        tabWidget->addTab(tab_Rayon, QString());
+        tab_Variete = new QWidget();
+        tab_Variete->setObjectName(QStringLiteral("tab_Variete"));
+        verticalLayout_39 = new QVBoxLayout(tab_Variete);
+        verticalLayout_39->setSpacing(6);
+        verticalLayout_39->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_39->setObjectName(QStringLiteral("verticalLayout_39"));
+        horizontalLayout_62 = new QHBoxLayout();
+        horizontalLayout_62->setSpacing(6);
+        horizontalLayout_62->setObjectName(QStringLiteral("horizontalLayout_62"));
+        horizontalSpacer_112 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_62->addItem(horizontalSpacer_112);
+
+        label_42 = new QLabel(tab_Variete);
+        label_42->setObjectName(QStringLiteral("label_42"));
+
+        horizontalLayout_62->addWidget(label_42);
+
+        horizontalSpacer_113 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_62->addItem(horizontalSpacer_113);
+
+
+        verticalLayout_39->addLayout(horizontalLayout_62);
+
+        horizontalLayout_63 = new QHBoxLayout();
+        horizontalLayout_63->setSpacing(6);
+        horizontalLayout_63->setObjectName(QStringLiteral("horizontalLayout_63"));
+        verticalLayout_36 = new QVBoxLayout();
+        verticalLayout_36->setSpacing(6);
+        verticalLayout_36->setObjectName(QStringLiteral("verticalLayout_36"));
+        horizontalLayout_64 = new QHBoxLayout();
+        horizontalLayout_64->setSpacing(6);
+        horizontalLayout_64->setObjectName(QStringLiteral("horizontalLayout_64"));
+        horizontalSpacer_114 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_64->addItem(horizontalSpacer_114);
+
+        label_43 = new QLabel(tab_Variete);
+        label_43->setObjectName(QStringLiteral("label_43"));
+
+        horizontalLayout_64->addWidget(label_43);
+
+        lineEdit_NomCategorie = new QLineEdit(tab_Variete);
+        lineEdit_NomCategorie->setObjectName(QStringLiteral("lineEdit_NomCategorie"));
+
+        horizontalLayout_64->addWidget(lineEdit_NomCategorie);
+
+        horizontalSpacer_115 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_64->addItem(horizontalSpacer_115);
+
+
+        verticalLayout_36->addLayout(horizontalLayout_64);
+
+        horizontalLayout_65 = new QHBoxLayout();
+        horizontalLayout_65->setSpacing(6);
+        horizontalLayout_65->setObjectName(QStringLiteral("horizontalLayout_65"));
+        horizontalSpacer_116 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_65->addItem(horizontalSpacer_116);
+
+        label_44 = new QLabel(tab_Variete);
+        label_44->setObjectName(QStringLiteral("label_44"));
+
+        horizontalLayout_65->addWidget(label_44);
+
+        comboBox_selectionRayonCategorie = new QComboBox(tab_Variete);
+        comboBox_selectionRayonCategorie->setObjectName(QStringLiteral("comboBox_selectionRayonCategorie"));
+
+        horizontalLayout_65->addWidget(comboBox_selectionRayonCategorie);
+
+        horizontalSpacer_117 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_65->addItem(horizontalSpacer_117);
+
+
+        verticalLayout_36->addLayout(horizontalLayout_65);
+
+
+        horizontalLayout_63->addLayout(verticalLayout_36);
+
+        verticalLayout_37 = new QVBoxLayout();
+        verticalLayout_37->setSpacing(6);
+        verticalLayout_37->setObjectName(QStringLiteral("verticalLayout_37"));
+        tableWidget_Categorie = new QTableWidget(tab_Variete);
+        tableWidget_Categorie->setObjectName(QStringLiteral("tableWidget_Categorie"));
+        tableWidget_Categorie->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableWidget_Categorie->verticalHeader()->setVisible(false);
+
+        verticalLayout_37->addWidget(tableWidget_Categorie);
+
+        verticalLayout_38 = new QVBoxLayout();
+        verticalLayout_38->setSpacing(6);
+        verticalLayout_38->setObjectName(QStringLiteral("verticalLayout_38"));
+        horizontalLayout_66 = new QHBoxLayout();
+        horizontalLayout_66->setSpacing(6);
+        horizontalLayout_66->setObjectName(QStringLiteral("horizontalLayout_66"));
+        horizontalSpacer_118 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_66->addItem(horizontalSpacer_118);
+
+        pushButton_AjoutCategorie = new QPushButton(tab_Variete);
+        pushButton_AjoutCategorie->setObjectName(QStringLiteral("pushButton_AjoutCategorie"));
+
+        horizontalLayout_66->addWidget(pushButton_AjoutCategorie);
+
+        horizontalSpacer_119 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_66->addItem(horizontalSpacer_119);
+
+        pushButton_ModifierCategorie = new QPushButton(tab_Variete);
+        pushButton_ModifierCategorie->setObjectName(QStringLiteral("pushButton_ModifierCategorie"));
+
+        horizontalLayout_66->addWidget(pushButton_ModifierCategorie);
+
+        horizontalSpacer_120 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_66->addItem(horizontalSpacer_120);
+
+
+        verticalLayout_38->addLayout(horizontalLayout_66);
+
+        verticalSpacer_23 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_38->addItem(verticalSpacer_23);
+
+        horizontalLayout_67 = new QHBoxLayout();
+        horizontalLayout_67->setSpacing(6);
+        horizontalLayout_67->setObjectName(QStringLiteral("horizontalLayout_67"));
+        horizontalSpacer_121 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_67->addItem(horizontalSpacer_121);
+
+        pushButton_SupprimerCategorie = new QPushButton(tab_Variete);
+        pushButton_SupprimerCategorie->setObjectName(QStringLiteral("pushButton_SupprimerCategorie"));
+
+        horizontalLayout_67->addWidget(pushButton_SupprimerCategorie);
+
+        horizontalSpacer_122 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_67->addItem(horizontalSpacer_122);
+
+
+        verticalLayout_38->addLayout(horizontalLayout_67);
+
+
+        verticalLayout_37->addLayout(verticalLayout_38);
+
+
+        horizontalLayout_63->addLayout(verticalLayout_37);
+
+
+        verticalLayout_39->addLayout(horizontalLayout_63);
+
+        tabWidget->addTab(tab_Variete, QString());
+        tab_6 = new QWidget();
+        tab_6->setObjectName(QStringLiteral("tab_6"));
+        tabWidget->addTab(tab_6, QString());
+        tab_Produit = new QWidget();
+        tab_Produit->setObjectName(QStringLiteral("tab_Produit"));
+        verticalLayout_43 = new QVBoxLayout(tab_Produit);
+        verticalLayout_43->setSpacing(6);
+        verticalLayout_43->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_43->setObjectName(QStringLiteral("verticalLayout_43"));
+        horizontalLayout_76 = new QHBoxLayout();
+        horizontalLayout_76->setSpacing(6);
+        horizontalLayout_76->setObjectName(QStringLiteral("horizontalLayout_76"));
+        horizontalSpacer_137 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_76->addItem(horizontalSpacer_137);
+
+        label_50 = new QLabel(tab_Produit);
+        label_50->setObjectName(QStringLiteral("label_50"));
+
+        horizontalLayout_76->addWidget(label_50);
+
+        horizontalSpacer_138 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_76->addItem(horizontalSpacer_138);
+
+
+        verticalLayout_43->addLayout(horizontalLayout_76);
+
+        horizontalLayout_68 = new QHBoxLayout();
+        horizontalLayout_68->setSpacing(6);
+        horizontalLayout_68->setObjectName(QStringLiteral("horizontalLayout_68"));
+        verticalLayout_40 = new QVBoxLayout();
+        verticalLayout_40->setSpacing(6);
+        verticalLayout_40->setObjectName(QStringLiteral("verticalLayout_40"));
+        horizontalLayout_69 = new QHBoxLayout();
+        horizontalLayout_69->setSpacing(6);
+        horizontalLayout_69->setObjectName(QStringLiteral("horizontalLayout_69"));
+        horizontalSpacer_123 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_69->addItem(horizontalSpacer_123);
+
+        label_45 = new QLabel(tab_Produit);
+        label_45->setObjectName(QStringLiteral("label_45"));
+
+        horizontalLayout_69->addWidget(label_45);
+
+        lineEdit_NomProduit = new QLineEdit(tab_Produit);
+        lineEdit_NomProduit->setObjectName(QStringLiteral("lineEdit_NomProduit"));
+
+        horizontalLayout_69->addWidget(lineEdit_NomProduit);
+
+        horizontalSpacer_124 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_69->addItem(horizontalSpacer_124);
+
+
+        verticalLayout_40->addLayout(horizontalLayout_69);
+
+        horizontalLayout_70 = new QHBoxLayout();
+        horizontalLayout_70->setSpacing(6);
+        horizontalLayout_70->setObjectName(QStringLiteral("horizontalLayout_70"));
+        label_46 = new QLabel(tab_Produit);
+        label_46->setObjectName(QStringLiteral("label_46"));
+
+        horizontalLayout_70->addWidget(label_46);
+
+        textEdit_InfProduit = new QTextEdit(tab_Produit);
+        textEdit_InfProduit->setObjectName(QStringLiteral("textEdit_InfProduit"));
+
+        horizontalLayout_70->addWidget(textEdit_InfProduit);
+
+
+        verticalLayout_40->addLayout(horizontalLayout_70);
+
+        horizontalLayout_71 = new QHBoxLayout();
+        horizontalLayout_71->setSpacing(6);
+        horizontalLayout_71->setObjectName(QStringLiteral("horizontalLayout_71"));
+        horizontalSpacer_126 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_71->addItem(horizontalSpacer_126);
+
+        label_47 = new QLabel(tab_Produit);
+        label_47->setObjectName(QStringLiteral("label_47"));
+
+        horizontalLayout_71->addWidget(label_47);
+
+        label_photoProduit = new QLabel(tab_Produit);
+        label_photoProduit->setObjectName(QStringLiteral("label_photoProduit"));
+
+        horizontalLayout_71->addWidget(label_photoProduit);
+
+        lineEdit_URLImageProduit = new QLineEdit(tab_Produit);
+        lineEdit_URLImageProduit->setObjectName(QStringLiteral("lineEdit_URLImageProduit"));
+
+        horizontalLayout_71->addWidget(lineEdit_URLImageProduit);
+
+        pushButton_findProduit = new QPushButton(tab_Produit);
+        pushButton_findProduit->setObjectName(QStringLiteral("pushButton_findProduit"));
+
+        horizontalLayout_71->addWidget(pushButton_findProduit);
+
+        horizontalSpacer_127 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_71->addItem(horizontalSpacer_127);
+
+
+        verticalLayout_40->addLayout(horizontalLayout_71);
+
+        horizontalLayout_72 = new QHBoxLayout();
+        horizontalLayout_72->setSpacing(6);
+        horizontalLayout_72->setObjectName(QStringLiteral("horizontalLayout_72"));
+        horizontalSpacer_128 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_72->addItem(horizontalSpacer_128);
+
+        label_48 = new QLabel(tab_Produit);
+        label_48->setObjectName(QStringLiteral("label_48"));
+
+        horizontalLayout_72->addWidget(label_48);
+
+        lineEdit_QuantiteProduit = new QLineEdit(tab_Produit);
+        lineEdit_QuantiteProduit->setObjectName(QStringLiteral("lineEdit_QuantiteProduit"));
+
+        horizontalLayout_72->addWidget(lineEdit_QuantiteProduit);
+
+        horizontalSpacer_129 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_72->addItem(horizontalSpacer_129);
+
+
+        verticalLayout_40->addLayout(horizontalLayout_72);
+
+        horizontalLayout_73 = new QHBoxLayout();
+        horizontalLayout_73->setSpacing(6);
+        horizontalLayout_73->setObjectName(QStringLiteral("horizontalLayout_73"));
+        horizontalSpacer_130 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_73->addItem(horizontalSpacer_130);
+
+        label_49 = new QLabel(tab_Produit);
+        label_49->setObjectName(QStringLiteral("label_49"));
+
+        horizontalLayout_73->addWidget(label_49);
+
+        comboBox_VarieteProduit = new QComboBox(tab_Produit);
+        comboBox_VarieteProduit->setObjectName(QStringLiteral("comboBox_VarieteProduit"));
+
+        horizontalLayout_73->addWidget(comboBox_VarieteProduit);
+
+        horizontalSpacer_131 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_73->addItem(horizontalSpacer_131);
+
+
+        verticalLayout_40->addLayout(horizontalLayout_73);
+
+
+        horizontalLayout_68->addLayout(verticalLayout_40);
+
+        verticalLayout_41 = new QVBoxLayout();
+        verticalLayout_41->setSpacing(6);
+        verticalLayout_41->setObjectName(QStringLiteral("verticalLayout_41"));
+        tableWidget_Produit = new QTableWidget(tab_Produit);
+        tableWidget_Produit->setObjectName(QStringLiteral("tableWidget_Produit"));
+        tableWidget_Produit->setSelectionMode(QAbstractItemView::SingleSelection);
+        tableWidget_Produit->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+        verticalLayout_41->addWidget(tableWidget_Produit);
+
+        verticalLayout_42 = new QVBoxLayout();
+        verticalLayout_42->setSpacing(6);
+        verticalLayout_42->setObjectName(QStringLiteral("verticalLayout_42"));
+        horizontalLayout_74 = new QHBoxLayout();
+        horizontalLayout_74->setSpacing(6);
+        horizontalLayout_74->setObjectName(QStringLiteral("horizontalLayout_74"));
+        horizontalSpacer_132 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_74->addItem(horizontalSpacer_132);
+
+        pushButton_AjoutProduit = new QPushButton(tab_Produit);
+        pushButton_AjoutProduit->setObjectName(QStringLiteral("pushButton_AjoutProduit"));
+
+        horizontalLayout_74->addWidget(pushButton_AjoutProduit);
+
+        horizontalSpacer_133 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_74->addItem(horizontalSpacer_133);
+
+        pushButton_ModifierProduit_5 = new QPushButton(tab_Produit);
+        pushButton_ModifierProduit_5->setObjectName(QStringLiteral("pushButton_ModifierProduit_5"));
+
+        horizontalLayout_74->addWidget(pushButton_ModifierProduit_5);
+
+        horizontalSpacer_134 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_74->addItem(horizontalSpacer_134);
+
+
+        verticalLayout_42->addLayout(horizontalLayout_74);
+
+        verticalSpacer_24 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_42->addItem(verticalSpacer_24);
+
+        horizontalLayout_75 = new QHBoxLayout();
+        horizontalLayout_75->setSpacing(6);
+        horizontalLayout_75->setObjectName(QStringLiteral("horizontalLayout_75"));
+        horizontalSpacer_135 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_75->addItem(horizontalSpacer_135);
+
+        pushButton_SupprimerProduit_5 = new QPushButton(tab_Produit);
+        pushButton_SupprimerProduit_5->setObjectName(QStringLiteral("pushButton_SupprimerProduit_5"));
+
+        horizontalLayout_75->addWidget(pushButton_SupprimerProduit_5);
+
+        horizontalSpacer_136 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_75->addItem(horizontalSpacer_136);
+
+
+        verticalLayout_42->addLayout(horizontalLayout_75);
+
+
+        verticalLayout_41->addLayout(verticalLayout_42);
+
+
+        horizontalLayout_68->addLayout(verticalLayout_41);
+
+
+        verticalLayout_43->addLayout(horizontalLayout_68);
+
+        tabWidget->addTab(tab_Produit, QString());
+
+        verticalLayout_15->addWidget(tabWidget);
+
+        QIcon icon11;
+        icon11.addFile(QStringLiteral(":/Images/Images/application-cog.png"), QSize(), QIcon::Normal, QIcon::Off);
+        tabWidgetGlobal->addTab(tab, icon11, QString());
 
         verticalLayout_6->addWidget(tabWidgetGlobal);
 
@@ -1094,8 +1778,9 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidgetGlobal->setCurrentIndex(1);
+        tabWidgetGlobal->setCurrentIndex(2);
         tabWidgetVerification->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1140,6 +1825,35 @@ public:
         pushButtonInvalidation_changeRaison->setText(QApplication::translate("MainWindow", "Changer raison Refus", nullptr));
         tabWidgetVerification->setTabText(tabWidgetVerification->indexOf(tab_4), QApplication::translate("MainWindow", "Invalidation", nullptr));
         tabWidgetGlobal->setTabText(tabWidgetGlobal->indexOf(tabVerification), QApplication::translate("MainWindow", "Producteur", nullptr));
+        label_37->setText(QApplication::translate("MainWindow", "Liste de vos Rayons ", nullptr));
+        label_35->setText(QApplication::translate("MainWindow", "Nom :", nullptr));
+        label_41->setText(QApplication::translate("MainWindow", "URl Image :", nullptr));
+        label_image->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        pushButton_findRayon->setText(QApplication::translate("MainWindow", "Find", nullptr));
+        pushButton_AjoutRayon->setText(QApplication::translate("MainWindow", "Ajouter", nullptr));
+        pushButton_ModifierRayon->setText(QApplication::translate("MainWindow", "Modifier", nullptr));
+        pushButton_SupprimerRayon->setText(QApplication::translate("MainWindow", "Supprimer", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_Rayon), QApplication::translate("MainWindow", "Rayon", nullptr));
+        label_42->setText(QApplication::translate("MainWindow", "Liste de vos Variete ", nullptr));
+        label_43->setText(QApplication::translate("MainWindow", "Nom :", nullptr));
+        label_44->setText(QApplication::translate("MainWindow", "Rayon :", nullptr));
+        pushButton_AjoutCategorie->setText(QApplication::translate("MainWindow", "Ajouter", nullptr));
+        pushButton_ModifierCategorie->setText(QApplication::translate("MainWindow", "Modifier", nullptr));
+        pushButton_SupprimerCategorie->setText(QApplication::translate("MainWindow", "Supprimer", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_Variete), QApplication::translate("MainWindow", "Cat\303\251gorie", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_6), QApplication::translate("MainWindow", "Vari\303\251t\303\251", nullptr));
+        label_50->setText(QApplication::translate("MainWindow", "Liste de vos Produits ", nullptr));
+        label_45->setText(QApplication::translate("MainWindow", "Nom :", nullptr));
+        label_46->setText(QApplication::translate("MainWindow", "Information :", nullptr));
+        label_47->setText(QApplication::translate("MainWindow", "URl Image :", nullptr));
+        label_photoProduit->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
+        pushButton_findProduit->setText(QApplication::translate("MainWindow", "find", nullptr));
+        label_48->setText(QApplication::translate("MainWindow", "quantit\303\251 :", nullptr));
+        label_49->setText(QApplication::translate("MainWindow", "Vari\303\251t\303\251 :", nullptr));
+        pushButton_AjoutProduit->setText(QApplication::translate("MainWindow", "Ajouter", nullptr));
+        pushButton_ModifierProduit_5->setText(QApplication::translate("MainWindow", "Modifier", nullptr));
+        pushButton_SupprimerProduit_5->setText(QApplication::translate("MainWindow", "Supprimer", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_Produit), QApplication::translate("MainWindow", "Produit", nullptr));
         tabWidgetGlobal->setTabText(tabWidgetGlobal->indexOf(tab), QApplication::translate("MainWindow", "Administration", nullptr));
     } // retranslateUi
 

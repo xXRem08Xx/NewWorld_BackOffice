@@ -1659,7 +1659,7 @@
         <item>
          <widget class="QTabWidget" name="tabWidget">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_Rayon">
            <attribute name="title">
@@ -1748,36 +1748,6 @@
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_58">
-                  <item>
-                   <spacer name="horizontalSpacer_95">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Minimum</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>30</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_38">
-                    <property name="text">
-                     <string>Label :</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="lineEdit_LabelRayon"/>
-                  </item>
-                 </layout>
-                </item>
-                <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_59">
                   <item>
                    <spacer name="horizontalSpacer_105">
@@ -1836,35 +1806,13 @@
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_33">
                 <item>
-                 <widget class="QTableWidget" name="tableWidget_Rayon_2">
+                 <widget class="QTableWidget" name="tableWidget_Rayon">
                   <property name="selectionBehavior">
                    <enum>QAbstractItemView::SelectRows</enum>
                   </property>
-                  <column>
-                   <property name="text">
-                    <string>Identifiant</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Nom</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Label</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>URL image</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Check</string>
-                   </property>
-                  </column>
+                  <attribute name="verticalHeaderVisible">
+                   <bool>false</bool>
+                  </attribute>
                  </widget>
                 </item>
                 <item>
@@ -1885,7 +1833,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_AjoutRayon_2">
+                     <widget class="QPushButton" name="pushButton_AjoutRayon">
                       <property name="text">
                        <string>Ajouter</string>
                       </property>
@@ -1905,7 +1853,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_ModifierRayon_2">
+                     <widget class="QPushButton" name="pushButton_ModifierRayon">
                       <property name="text">
                        <string>Modifier</string>
                       </property>
@@ -1955,7 +1903,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_SupprimerRayon_2">
+                     <widget class="QPushButton" name="pushButton_SupprimerRayon">
                       <property name="text">
                        <string>Supprimer</string>
                       </property>
@@ -1986,7 +1934,7 @@
           </widget>
           <widget class="QWidget" name="tab_Variete">
            <attribute name="title">
-            <string>Variété</string>
+            <string>Catégorie</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_39">
             <item>
@@ -2053,7 +2001,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLineEdit" name="lineEdit_NomVeriete"/>
+                   <widget class="QLineEdit" name="lineEdit_NomCategorie"/>
                   </item>
                   <item>
                    <spacer name="horizontalSpacer_115">
@@ -2093,7 +2041,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBox_RayonVariete"/>
+                   <widget class="QComboBox" name="comboBox_selectionRayonCategorie"/>
                   </item>
                   <item>
                    <spacer name="horizontalSpacer_117">
@@ -2115,30 +2063,13 @@
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_37">
                 <item>
-                 <widget class="QTableWidget" name="tableWidget_Variete">
+                 <widget class="QTableWidget" name="tableWidget_Categorie">
                   <property name="selectionBehavior">
                    <enum>QAbstractItemView::SelectRows</enum>
                   </property>
-                  <column>
-                   <property name="text">
-                    <string>Identifiant</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Nom</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Rayon</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Check</string>
-                   </property>
-                  </column>
+                  <attribute name="verticalHeaderVisible">
+                   <bool>false</bool>
+                  </attribute>
                  </widget>
                 </item>
                 <item>
@@ -2159,7 +2090,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_AjoutVariete">
+                     <widget class="QPushButton" name="pushButton_AjoutCategorie">
                       <property name="text">
                        <string>Ajouter</string>
                       </property>
@@ -2179,7 +2110,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_ModifierVariete">
+                     <widget class="QPushButton" name="pushButton_ModifierCategorie">
                       <property name="text">
                        <string>Modifier</string>
                       </property>
@@ -2229,7 +2160,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButton_SupprimerVariete">
+                     <widget class="QPushButton" name="pushButton_SupprimerCategorie">
                       <property name="text">
                        <string>Supprimer</string>
                       </property>
@@ -2257,6 +2188,11 @@
              </layout>
             </item>
            </layout>
+          </widget>
+          <widget class="QWidget" name="tab_6">
+           <attribute name="title">
+            <string>Variété</string>
+           </attribute>
           </widget>
           <widget class="QWidget" name="tab_Produit">
            <attribute name="title">
@@ -2504,41 +2440,6 @@
                   <property name="selectionBehavior">
                    <enum>QAbstractItemView::SelectRows</enum>
                   </property>
-                  <column>
-                   <property name="text">
-                    <string>Identifiant</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Nom</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Information</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>URL image</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Quantité</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Variété</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Check</string>
-                   </property>
-                  </column>
                  </widget>
                 </item>
                 <item>

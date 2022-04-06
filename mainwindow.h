@@ -21,10 +21,19 @@ public:
     void createLigne(QTableWidget *tableau);
     void createColonne(QString nomColonne, QTableWidget *tableau);
     void createTableColonne(QString nomDeLaTable, QTableWidget *tableau);
+
+    //gestion producteur
     void verifProducteur();
     void listerProducteur();
     void listerInvalidation();
     void listerInactif();
+
+    //gestion produit/varieté/categorie
+    void afficheRayon();
+    void afficheCategorie();
+    void comboBoxCategorie();
+
+
 
     ~MainWindow();
 
@@ -64,6 +73,24 @@ private slots:
     void on_pushButton_listeProducteurInactif_actualiser_clicked();
 
     void on_tableWidgetProducteur_listeProducteurInactif_itemSelectionChanged();
+
+    void on_pushButton_findRayon_clicked();
+
+    void on_pushButton_AjoutRayon_clicked();
+
+    void on_pushButton_ModifierRayon_clicked();
+
+    void on_tableWidget_Rayon_itemSelectionChanged();
+
+    void on_pushButton_SupprimerRayon_clicked();
+
+    void on_pushButton_AjoutCategorie_clicked();
+
+    void on_tableWidget_Categorie_itemSelectionChanged();
+
+    void on_pushButton_ModifierCategorie_clicked();
+
+    void on_pushButton_SupprimerCategorie_clicked();
 
 private:
     Ui::MainWindow *ui;
