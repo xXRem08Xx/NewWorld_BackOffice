@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 06 avr. 2022 à 17:38
+-- Généré le : mer. 06 avr. 2022 à 17:47
 -- Version du serveur : 10.3.34-MariaDB-0+deb10u1
 -- Version de PHP : 7.3.31-1~deb10u1
 
@@ -178,7 +178,7 @@ CREATE TABLE `Producteur` (
   `telephone` varchar(17) DEFAULT NULL,
   `adresse` varchar(60) DEFAULT NULL,
   `horaire` time DEFAULT NULL,
-  `dateEnregistrement` date DEFAULT NULL,
+  `dateEnregistrement` date DEFAULT current_timestamp(),
   `actif` tinyint(1) DEFAULT 1,
   `identifiantTypeAbonnement` int(11) NOT NULL DEFAULT 2,
   `consultationRegistre` tinyint(1) DEFAULT 0,
@@ -369,7 +369,7 @@ CREATE TABLE `Utilisateur` (
   `telephone` varchar(17) DEFAULT NULL,
   `motDePasse` varchar(41) DEFAULT NULL,
   `mail` varchar(100) DEFAULT NULL,
-  `dateEnregistrement` date DEFAULT NULL,
+  `dateEnregistrement` date DEFAULT current_timestamp(),
   `actif` tinyint(1) DEFAULT 1,
   `idRole` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -393,7 +393,7 @@ CREATE TABLE `Variete` (
   `identifiantVariete` int(11) NOT NULL,
   `libelle` varchar(25) DEFAULT NULL,
   `lienImage` varchar(50) DEFAULT NULL,
-  `dateEnregistrement` date DEFAULT NULL,
+  `dateEnregistrement` date DEFAULT current_timestamp(),
   `identifiantCategorie` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
