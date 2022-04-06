@@ -206,25 +206,31 @@ public:
     QVBoxLayout *verticalLayout_15;
     QTabWidget *tabWidget;
     QWidget *tab_Rayon;
-    QVBoxLayout *verticalLayout_35;
+    QVBoxLayout *verticalLayout_17;
     QHBoxLayout *horizontalLayout_51;
     QSpacerItem *horizontalSpacer_93;
     QLabel *label_37;
     QSpacerItem *horizontalSpacer_94;
-    QHBoxLayout *horizontalLayout_52;
-    QVBoxLayout *verticalLayout_32;
+    QHBoxLayout *horizontalLayout_26;
+    QVBoxLayout *verticalLayout_16;
+    QSpacerItem *verticalSpacer_23;
     QHBoxLayout *horizontalLayout_53;
     QSpacerItem *horizontalSpacer_84;
     QLabel *label_35;
     QLineEdit *lineEdit_NomRayon;
     QSpacerItem *horizontalSpacer_85;
-    QHBoxLayout *horizontalLayout_59;
+    QSpacerItem *verticalSpacer_22;
+    QHBoxLayout *horizontalLayout_25;
     QSpacerItem *horizontalSpacer_105;
     QLabel *label_41;
-    QLabel *label_image;
     QLineEdit *lineEdit_URLImageRayon;
     QPushButton *pushButton_findRayon;
     QSpacerItem *horizontalSpacer_106;
+    QHBoxLayout *horizontalLayout_23;
+    QSpacerItem *horizontalSpacer_37;
+    QLabel *label_image;
+    QSpacerItem *horizontalSpacer_39;
+    QSpacerItem *verticalSpacer_24;
     QVBoxLayout *verticalLayout_33;
     QTableWidget *tableWidget_Rayon;
     QVBoxLayout *verticalLayout_34;
@@ -234,7 +240,6 @@ public:
     QSpacerItem *horizontalSpacer_108;
     QPushButton *pushButton_ModifierRayon;
     QSpacerItem *horizontalSpacer_109;
-    QSpacerItem *verticalSpacer_22;
     QHBoxLayout *horizontalLayout_61;
     QSpacerItem *horizontalSpacer_110;
     QPushButton *pushButton_SupprimerRayon;
@@ -266,7 +271,6 @@ public:
     QSpacerItem *horizontalSpacer_119;
     QPushButton *pushButton_ModifierCategorie;
     QSpacerItem *horizontalSpacer_120;
-    QSpacerItem *verticalSpacer_23;
     QHBoxLayout *horizontalLayout_67;
     QSpacerItem *horizontalSpacer_121;
     QPushButton *pushButton_SupprimerCategorie;
@@ -314,7 +318,6 @@ public:
     QSpacerItem *horizontalSpacer_133;
     QPushButton *pushButton_ModifierProduit_5;
     QSpacerItem *horizontalSpacer_134;
-    QSpacerItem *verticalSpacer_24;
     QHBoxLayout *horizontalLayout_75;
     QSpacerItem *horizontalSpacer_135;
     QPushButton *pushButton_SupprimerProduit_5;
@@ -1202,10 +1205,10 @@ public:
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tab_Rayon = new QWidget();
         tab_Rayon->setObjectName(QStringLiteral("tab_Rayon"));
-        verticalLayout_35 = new QVBoxLayout(tab_Rayon);
-        verticalLayout_35->setSpacing(6);
-        verticalLayout_35->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_35->setObjectName(QStringLiteral("verticalLayout_35"));
+        verticalLayout_17 = new QVBoxLayout(tab_Rayon);
+        verticalLayout_17->setSpacing(6);
+        verticalLayout_17->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
         horizontalLayout_51 = new QHBoxLayout();
         horizontalLayout_51->setSpacing(6);
         horizontalLayout_51->setObjectName(QStringLiteral("horizontalLayout_51"));
@@ -1223,14 +1226,18 @@ public:
         horizontalLayout_51->addItem(horizontalSpacer_94);
 
 
-        verticalLayout_35->addLayout(horizontalLayout_51);
+        verticalLayout_17->addLayout(horizontalLayout_51);
 
-        horizontalLayout_52 = new QHBoxLayout();
-        horizontalLayout_52->setSpacing(6);
-        horizontalLayout_52->setObjectName(QStringLiteral("horizontalLayout_52"));
-        verticalLayout_32 = new QVBoxLayout();
-        verticalLayout_32->setSpacing(6);
-        verticalLayout_32->setObjectName(QStringLiteral("verticalLayout_32"));
+        horizontalLayout_26 = new QHBoxLayout();
+        horizontalLayout_26->setSpacing(6);
+        horizontalLayout_26->setObjectName(QStringLiteral("horizontalLayout_26"));
+        verticalLayout_16 = new QVBoxLayout();
+        verticalLayout_16->setSpacing(6);
+        verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
+        verticalSpacer_23 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_16->addItem(verticalSpacer_23);
+
         horizontalLayout_53 = new QHBoxLayout();
         horizontalLayout_53->setSpacing(6);
         horizontalLayout_53->setObjectName(QStringLiteral("horizontalLayout_53"));
@@ -1253,44 +1260,66 @@ public:
         horizontalLayout_53->addItem(horizontalSpacer_85);
 
 
-        verticalLayout_32->addLayout(horizontalLayout_53);
+        verticalLayout_16->addLayout(horizontalLayout_53);
 
-        horizontalLayout_59 = new QHBoxLayout();
-        horizontalLayout_59->setSpacing(6);
-        horizontalLayout_59->setObjectName(QStringLiteral("horizontalLayout_59"));
+        verticalSpacer_22 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_16->addItem(verticalSpacer_22);
+
+        horizontalLayout_25 = new QHBoxLayout();
+        horizontalLayout_25->setSpacing(6);
+        horizontalLayout_25->setObjectName(QStringLiteral("horizontalLayout_25"));
         horizontalSpacer_105 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_59->addItem(horizontalSpacer_105);
+        horizontalLayout_25->addItem(horizontalSpacer_105);
 
         label_41 = new QLabel(tab_Rayon);
         label_41->setObjectName(QStringLiteral("label_41"));
 
-        horizontalLayout_59->addWidget(label_41);
-
-        label_image = new QLabel(tab_Rayon);
-        label_image->setObjectName(QStringLiteral("label_image"));
-
-        horizontalLayout_59->addWidget(label_image);
+        horizontalLayout_25->addWidget(label_41);
 
         lineEdit_URLImageRayon = new QLineEdit(tab_Rayon);
         lineEdit_URLImageRayon->setObjectName(QStringLiteral("lineEdit_URLImageRayon"));
 
-        horizontalLayout_59->addWidget(lineEdit_URLImageRayon);
+        horizontalLayout_25->addWidget(lineEdit_URLImageRayon);
 
         pushButton_findRayon = new QPushButton(tab_Rayon);
         pushButton_findRayon->setObjectName(QStringLiteral("pushButton_findRayon"));
 
-        horizontalLayout_59->addWidget(pushButton_findRayon);
+        horizontalLayout_25->addWidget(pushButton_findRayon);
 
         horizontalSpacer_106 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_59->addItem(horizontalSpacer_106);
+        horizontalLayout_25->addItem(horizontalSpacer_106);
 
 
-        verticalLayout_32->addLayout(horizontalLayout_59);
+        verticalLayout_16->addLayout(horizontalLayout_25);
+
+        horizontalLayout_23 = new QHBoxLayout();
+        horizontalLayout_23->setSpacing(6);
+        horizontalLayout_23->setObjectName(QStringLiteral("horizontalLayout_23"));
+        horizontalSpacer_37 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_23->addItem(horizontalSpacer_37);
+
+        label_image = new QLabel(tab_Rayon);
+        label_image->setObjectName(QStringLiteral("label_image"));
+
+        horizontalLayout_23->addWidget(label_image);
+
+        horizontalSpacer_39 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_23->addItem(horizontalSpacer_39);
 
 
-        horizontalLayout_52->addLayout(verticalLayout_32);
+        verticalLayout_16->addLayout(horizontalLayout_23);
+
+        verticalSpacer_24 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_16->addItem(verticalSpacer_24);
+
+
+        horizontalLayout_26->addLayout(verticalLayout_16);
 
         verticalLayout_33 = new QVBoxLayout();
         verticalLayout_33->setSpacing(6);
@@ -1333,10 +1362,6 @@ public:
 
         verticalLayout_34->addLayout(horizontalLayout_60);
 
-        verticalSpacer_22 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_34->addItem(verticalSpacer_22);
-
         horizontalLayout_61 = new QHBoxLayout();
         horizontalLayout_61->setSpacing(6);
         horizontalLayout_61->setObjectName(QStringLiteral("horizontalLayout_61"));
@@ -1360,10 +1385,10 @@ public:
         verticalLayout_33->addLayout(verticalLayout_34);
 
 
-        horizontalLayout_52->addLayout(verticalLayout_33);
+        horizontalLayout_26->addLayout(verticalLayout_33);
 
 
-        verticalLayout_35->addLayout(horizontalLayout_52);
+        verticalLayout_17->addLayout(horizontalLayout_26);
 
         tabWidget->addTab(tab_Rayon, QString());
         tab_Variete = new QWidget();
@@ -1488,10 +1513,6 @@ public:
 
 
         verticalLayout_38->addLayout(horizontalLayout_66);
-
-        verticalSpacer_23 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_38->addItem(verticalSpacer_23);
 
         horizontalLayout_67 = new QHBoxLayout();
         horizontalLayout_67->setSpacing(6);
@@ -1722,10 +1743,6 @@ public:
 
         verticalLayout_42->addLayout(horizontalLayout_74);
 
-        verticalSpacer_24 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_42->addItem(verticalSpacer_24);
-
         horizontalLayout_75 = new QHBoxLayout();
         horizontalLayout_75->setSpacing(6);
         horizontalLayout_75->setObjectName(QStringLiteral("horizontalLayout_75"));
@@ -1780,7 +1797,7 @@ public:
 
         tabWidgetGlobal->setCurrentIndex(2);
         tabWidgetVerification->setCurrentIndex(2);
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1828,8 +1845,8 @@ public:
         label_37->setText(QApplication::translate("MainWindow", "Liste de vos Rayons ", nullptr));
         label_35->setText(QApplication::translate("MainWindow", "Nom :", nullptr));
         label_41->setText(QApplication::translate("MainWindow", "URl Image :", nullptr));
-        label_image->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         pushButton_findRayon->setText(QApplication::translate("MainWindow", "Find", nullptr));
+        label_image->setText(QApplication::translate("MainWindow", "TextLabel", nullptr));
         pushButton_AjoutRayon->setText(QApplication::translate("MainWindow", "Ajouter", nullptr));
         pushButton_ModifierRayon->setText(QApplication::translate("MainWindow", "Modifier", nullptr));
         pushButton_SupprimerRayon->setText(QApplication::translate("MainWindow", "Supprimer", nullptr));
